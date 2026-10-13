@@ -343,3 +343,9 @@ These are opt-in settings on one rig, not defaults.
 
 With a layer split, `--batch N --batch-groups G --trim-stage-weights` decodes several conversations together and
 pipelines them through the cards: see [BATCHING.md](BATCHING.md).
+
+Mixed AMD/NVIDIA inference in one run remains unsupported. Linux-only
+[Phase 0 feasibility probes](../tests/xvendor/README.md) are available behind
+`STRATA_XVENDOR_TESTS=ON` for manual shared-memory, registration and runtime
+coexistence checks. GPU compilation and hardware gates remain pending; these
+probes add no engine split or setup/server behavior.

@@ -1,0 +1,4 @@
+{
+    global: strata_xprobe_v1;
+    local: *;
+};

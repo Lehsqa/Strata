@@ -682,3 +682,25 @@ passes. Additional unpublished upstream fixture suites are not covered.
 The published performance table explicitly identifies the measured development
 snapshot; it must not be read as a benchmark of every subsequent rebase. Vision, long-context stress, broad answer-quality
 equivalence, other AMD cards, and mixed-vendor inference are not validated here.
+
+## Linux CUDA and HIP probe co-install
+
+Mixed AMD/NVIDIA inference remains unsupported. The opt-in, manual
+[Phase 0 probes](../tests/xvendor/README.md) check shared registration, transfers
+and runtime coexistence before any engine integration. Their GPU builds and
+hardware gates are pending.
+
+For gfx906, build the HIP probe inside the community
+`mixa3607/rocm-gfx906:7.14-complete` image described above. Run the resulting
+binary on the native Linux host with that image's matching ROCm runtime tree,
+including its rocBLAS/Tensile files. Preserve the tree layout when copying it;
+check ELF dependencies with `ldd`. Setup's `hip_runtime_closure()` and
+`hip_runtime_beside_exe()` are Windows DLL helpers and cannot collect a Linux
+runtime closure. Linux packaging still needs verification on the test machine.
+
+Keep the host's in-kernel `amdgpu` driver alongside the NVIDIA driver; do not
+install `amdgpu-dkms` for these probes. The user needs access to `/dev/kfd` and
+`/dev/dri/render*`, normally through the `render` and `video` groups. Apply ROCm's
+`LD_LIBRARY_PATH` only to the HIP child and leave `CUDA_VISIBLE_DEVICES` and
+`CUDA_DEVICE_ORDER` unset there: HIP also reads CUDA's visibility variable. The
+probe launcher does this isolation and selects `HIP_VISIBLE_DEVICES` separately.

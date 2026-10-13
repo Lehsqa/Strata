@@ -11,8 +11,12 @@ cmake_minimum_required(VERSION 3.24)
 project(strata VERSION 0.1.43.1 LANGUAGES CXX)
 # EXPERIMENTAL: the Intel Arc engine, the SYCL port in sycl/ (PR #423; icpx + oneMKL, docs/INTEL_ARC.md). It is its
 # own project that takes the unported sources from src/; with this on, nothing below is configured.
+option(STRATA_XVENDOR_TESTS "Build manual Linux cross-vendor feasibility probes (no engine integration)" OFF)
 option(STRATA_ENABLE_SYCL "EXPERIMENTAL: build the Intel Arc (SYCL) engine from sycl/ - docs/INTEL_ARC.md" OFF)
 if(STRATA_ENABLE_SYCL)
+  if(STRATA_XVENDOR_TESTS)
+    message(FATAL_ERROR "STRATA_XVENDOR_TESTS supports CPU, CUDA and HIP builds, not SYCL")
+  endif()
   if(STRATA_ENABLE_CUDA OR STRATA_ENABLE_HIP)
     message(FATAL_ERROR "STRATA_ENABLE_SYCL is a separate backend; leave STRATA_ENABLE_CUDA and STRATA_ENABLE_HIP off")
   endif()
@@ -1657,4 +1661,9 @@ endif()
 if(STRATA_HIP_GFX906)
   add_executable(gfx906_qsa_query_swizzle_probe bench/gfx906_qsa_query_swizzle_probe.cpp)
   target_link_libraries(gfx906_qsa_query_swizzle_probe PRIVATE strata_kernels ${_strata_gpu_runtime_target})
+endif()
+
+# Opt-in, manual feasibility probes; never part of ctest or the engine.
+if(STRATA_XVENDOR_TESTS)
+  add_subdirectory(tests/xvendor)
 endif()
