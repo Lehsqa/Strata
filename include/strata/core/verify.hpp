@@ -26,6 +26,7 @@
 #include "strata/core/expert_source.hpp"
 #include "strata/core/layer.hpp"
 #include "strata/core/session.hpp"
+#include "strata/core/stage_link.hpp"
 #include "strata/kernels/sampler.hpp"
 
 #include <cuda_runtime.h>
@@ -61,10 +62,6 @@ struct AdaptGate {
 
 class NativeHead;
 class RemoteExpertOpt;
-
-/// The CPU pool for a window: x_f (n_tok, n_embd), ids (n_tok, k) -> out (n_tok * k, n_embd), hit rows zeroed.
-using PoolMultiFn = void (*)(void* user, const float* x_f, const int32_t* ids, int64_t n_tok, int64_t k, float* out,
-                             int64_t layer);
 
 struct VerifyHits {
     const int32_t* d_res = nullptr;      ///< device [n_layers * n_expert] slot or -1
@@ -104,7 +101,7 @@ public:
     bool run(int T, const int32_t* tokens, int64_t pos0, PoolMultiFn pool, void* user, int32_t* out, std::string& err);
     /// Diagnostics: row `t` of the last window's head logits (n_vocab floats) to the host. Valid after run().
     bool copy_logits(int t, float* host) const;
-    int64_t vocab() const { return next_ ? next_->vocab() : n_vocab_; }
+    int64_t vocab() const { return link_ ? link_->vocab() : next_ ? next_->vocab() : n_vocab_; }
     /// #879 GUARD: the first row of the last finished window (run, run_slot_rows, batch_poll, pl_finish) whose head
     /// logits held a NaN or an infinity, else -1; nonfinite_pos() is that row's position.  Every window graph
     /// checks its T rows on the device beside the greedy pick (logits_nonfinite_rows into mapped flags, read after
@@ -112,10 +109,17 @@ public:
     /// stage).  STRATA_NAN_GUARD=0: off (always -1).  STRATA_NAN_INJECT=<n>[,<n>...] (debug): the n-th window the
     /// guard checks in this process (counted from 1 over every stage-with-head verifier: prompt-tail windows, decode
     /// windows and batch windows alike) reports row 0 as non-finite, so the whole response can be tested.
-    int nonfinite_row() const { return next_ != nullptr && !last_stage() ? next_->nonfinite_row() : nf_row_; }
-    int64_t nonfinite_pos() const { return next_ != nullptr && !last_stage() ? next_->nonfinite_pos() : nf_pos_; }
+    int nonfinite_row() const {
+        if (link_) return link_->nonfinite_row();
+        return next_ != nullptr && !last_stage() ? next_->nonfinite_row() : nf_row_;
+    }
+    int64_t nonfinite_pos() const {
+        if (link_) return link_->nonfinite_pos();
+        return next_ != nullptr && !last_stage() ? next_->nonfinite_pos() : nf_pos_;
+    }
     /// Row t of the last window (a batch window: each slot's own rows) held a non-finite logit.
     bool nonfinite_in(int t) const {
+        if (link_) return link_->nonfinite_in(t);
         if (next_ != nullptr && !last_stage()) return next_->nonfinite_in(t);
         return t >= 0 && t < 32 && ((nf_mask_ >> t) & 1u) != 0;
     }
@@ -126,6 +130,7 @@ public:
     void set_sampling(const strata::kernels::SamplerParams& sp) {
         sampling_ = sp;   // row t of a window at pos0 draws Philox(seed, pos0 + t): see run()
         sampling_.logit_bias = logit_bias_host_.empty() ? nullptr : logit_bias_device_;
+        if (link_) link_->set_sampling(sp);
         if (next_) next_->set_sampling(sp);
     }
     // One request's fixed vocabulary bias. Empty clears it; copied only when changed, on the final stage's device.
@@ -140,6 +145,7 @@ public:
     void set_history(const int32_t* history, int history_len) {
         hist_d_ = history;
         hist_len_ = history_len;
+        if (link_) link_->set_history(history, history_len);
         if (next_) next_->set_history(history, history_len);
     }
     /// PROBABILISTIC DRAFT ACCEPTANCE (core/spec_prob.hpp, STRATA_SPEC_PROB=1): for the NEXT run() only, judge the
@@ -150,6 +156,7 @@ public:
     void set_spec_q(const int32_t* q, int n_q) {
         spec_q_ = q;
         spec_nq_ = n_q;
+        if (link_) link_->set_spec_q(q, n_q);
         if (next_) next_->set_spec_q(q, n_q);
     }
     /// Counters of the rejection path (windows judged, drafts kept / offered over its rows with a q list).
@@ -158,7 +165,11 @@ public:
     /// Off: `run` skips the request's head sampling and `out` is the recorded greedy pick.  For windows whose
     /// picks are discarded - a prompt read through windows commits every token - so they cost no sampler launch
     /// or sync and never read a history staged for another position.
-    void set_head_sampling(bool on) { head_sampling_ = on; if (next_) next_->set_head_sampling(on); }
+    void set_head_sampling(bool on) {
+        head_sampling_ = on;
+        if (link_) link_->set_head_sampling(on);
+        if (next_) next_->set_head_sampling(on);
+    }
 
     /// LAYER SPLIT (multi-GPU): this verifier runs layers [layer_begin, layer_end) of every window.  A stage that
     /// does not start at layer 0 takes its residual from `handoff_in` instead of embedding the tokens; a stage that
@@ -172,7 +183,10 @@ public:
     }
     /// The next stage: `run` and `commit` continue into it (its pool calls get `next_user`); sampling settings
     /// and `final_R` are the last stage's.
-    void set_next(Verifier* next, void* next_user) { next_ = next; next_user_ = next_user; }
+    void set_next(Verifier* next, void* next_user) { next_ = next; next_user_ = next_user; link_ = nullptr; }
+    /// Remote v1 supports serialized windows only. Set before init, instead of set_next.
+    void set_next_link(StageLink* link) { link_ = link; next_ = nullptr; next_user_ = nullptr; }
+    bool has_next() const { return next_ != nullptr || link_ != nullptr; }
     /// floats per token in a hand-off buffer
     static int64_t handoff_floats(const ModelGeometry& g) { return (int64_t) g.hc * g.n_embd + g.n_embd + g.hc; }
 
@@ -294,7 +308,7 @@ public:
 
     /// Token t's residual after the last layer, (hc, n_embd) on the device, valid until the next `run`.
     const float* final_R(int t) const;
-    const float* final_R_all() const { return next_ ? next_->final_R_all() : R_; }
+    const float* final_R_all() const { return link_ ? link_->final_R_all() : next_ ? next_->final_R_all() : R_; }
 
     /// The GPU plan the pool writes each layer (VRAM hits + the PCIe share of the misses); give it to the
     /// dispatch (`ExpertDispatch::plan`) before the first `run`.
@@ -412,6 +426,7 @@ private:
     const float* hand_in_ = nullptr;
     float* hand_out_ = nullptr;
     Verifier* next_ = nullptr;
+    StageLink* link_ = nullptr;
     void* next_user_ = nullptr;
     bool ple_stage() const { return lb_ <= 1 && 1 < le_; }   ///< holds layer 1, where the PLE block runs
     void stage_inputs(int T, const int32_t* tokens, int64_t pos0);

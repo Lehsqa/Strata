@@ -1,0 +1,1026 @@
+[ 13%] Built target strata_core
+[ 13%] Built target ggml-base
+[ 17%] Built target strata_spec
+[ 29%] Built target ggml-cpu
+[ 64%] Built target strata_kernels
+[ 74%] Built target strata_mmq
+[ 82%] Built target strata_kernels_cpu
+[ 94%] Built target strata_engine
+[ 98%] Built target strata_prefill
+[ 98%] Building CXX object CMakeFiles/strata.dir/src/program/generate.cpp.o
+In file included from <TARGET_REPO>/src/program/generate.cpp:35:
+<TARGET_REPO>/include/strata/core/on_device.hpp: In destructor ‘strata::core::OnDevice::~OnDevice()’:
+<TARGET_REPO>/include/strata/core/on_device.hpp:17:51: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   17 |     ~OnDevice() { if (previous >= 0) cudaSetDevice(previous); }
+      |                                                   ^
+In file included from /opt/rocm/include/hip/hip_runtime.h:70,
+                 from <TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:18,
+                 from <TARGET_REPO>/include/strata/platform/hip_compat/cuda_runtime.h:2,
+                 from <TARGET_REPO>/include/strata/core/dma_batch.hpp:16,
+                 from <TARGET_REPO>/src/program/generate.cpp:22:
+/opt/rocm/include/hip/hip_runtime_api.h:1864:12: note: in call to ‘hipError_t hipSetDevice(int)’, declared here
+ 1864 | hipError_t hipSetDevice(int deviceId);
+      |            ^~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+In file included from <TARGET_REPO>/include/strata/core/mtp.hpp:23,
+                 from <TARGET_REPO>/src/program/generate.cpp:64:
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp: In member function ‘void* strata::core::PinnedRing::acquire(size_t)’:
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp:51:67: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   51 |         if (cudaGetDevice(&cur) != cudaSuccess) { cudaGetLastError(); return nullptr; }
+      |                                                                   ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp:58:79: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   58 |             if (cudaEventSynchronize(sl.ev) != cudaSuccess) { cudaGetLastError(); return nullptr; }
+      |                                                                               ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp:61:37: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   61 |             if (sl.p) { cudaFreeHost(sl.p); sl.p = nullptr; sl.cap = 0; }   // idle: its last copy was waited for above
+      |                                     ^
+/opt/rocm/include/hip/hip_runtime_api.h:3970:12: note: in call to ‘hipError_t hipHostFree(void*)’, declared here
+ 3970 | hipError_t hipHostFree(void* ptr);
+      |            ^~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp:64:33: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   64 |                 cudaGetLastError();
+      |                                 ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp:71:29: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   71 |             cudaGetLastError();
+      |                             ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp: In member function ‘hipError_t strata::core::PinnedRing::submit(void*, const void*, size_t, hipStream_t)’:
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp:91:25: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+   91 |         cudaGetLastError();                // no event: the copy is waited for here instead
+      |                         ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp: In member function ‘void strata::core::PinnedRing::release()’:
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp:118:58: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+  118 |             if (sl.pending && sl.ev) cudaEventSynchronize(sl.ev);
+      |                                                          ^
+/opt/rocm/include/hip/hip_runtime_api.h:2861:12: note: in call to ‘hipError_t hipEventSynchronize(hipEvent_t)’, declared here
+ 2861 | hipError_t hipEventSynchronize(hipEvent_t event);
+      |            ^~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp:119:40: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+  119 |             if (sl.ev) cudaEventDestroy(sl.ev);
+      |                                        ^
+/opt/rocm/include/hip/hip_runtime_api.h:2842:12: note: in call to ‘hipError_t hipEventDestroy(hipEvent_t)’, declared here
+ 2842 | hipError_t hipEventDestroy(hipEvent_t event);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp:120:35: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+  120 |             if (sl.p) cudaFreeHost(sl.p);
+      |                                   ^
+/opt/rocm/include/hip/hip_runtime_api.h:3970:12: note: in call to ‘hipError_t hipHostFree(void*)’, declared here
+ 3970 | hipError_t hipHostFree(void* ptr);
+      |            ^~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/include/strata/core/pinned_ring.hpp:123:25: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+  123 |         cudaGetLastError();
+      |                         ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘void {anonymous}::mem_mark(const char*)’:
+<TARGET_REPO>/src/program/generate.cpp:1343:19: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 1343 |     cudaMemGetInfo(&free_b, &total_b);
+      |                   ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘double {anonymous}::probe_pcie_h2d_gbps(std::string*)’:
+<TARGET_REPO>/src/program/generate.cpp:1643:21: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 1643 |         cudaFreeHost(h);
+      |                     ^
+/opt/rocm/include/hip/hip_runtime_api.h:3970:12: note: in call to ‘hipError_t hipHostFree(void*)’, declared here
+ 3970 | hipError_t hipHostFree(void* ptr);
+      |            ^~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:1647:20: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 1647 |     cudaMemcpyAsync(d, h, kBytes, cudaMemcpyHostToDevice);   // warmup: context up, copy engine primed
+      |                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:4399:12: note: in call to ‘hipError_t hipMemcpyAsync(void*, const void*, size_t, hipMemcpyKind, hipStream_t)’, declared here
+ 4399 | hipError_t hipMemcpyAsync(void* dst, const void* src, size_t sizeBytes, hipMemcpyKind kind,
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:1667:24: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 1667 |         cudaEventRecord(ev[0]);
+      |                        ^
+/opt/rocm/include/hip/hip_runtime_api.h:2822:12: note: in call to ‘hipError_t hipEventRecord(hipEvent_t, hipStream_t)’, declared here
+ 2822 | hipError_t hipEventRecord(hipEvent_t event, hipStream_t stream = NULL);
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:1669:28: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 1669 |             cudaMemcpyAsync(d, h, kBytes, cudaMemcpyHostToDevice);
+      |                            ^
+/opt/rocm/include/hip/hip_runtime_api.h:4399:12: note: in call to ‘hipError_t hipMemcpyAsync(void*, const void*, size_t, hipMemcpyKind, hipStream_t)’, declared here
+ 4399 | hipError_t hipMemcpyAsync(void* dst, const void* src, size_t sizeBytes, hipMemcpyKind kind,
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:1670:28: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 1670 |             cudaEventRecord(ev[b + 1]);
+      |                            ^
+/opt/rocm/include/hip/hip_runtime_api.h:2822:12: note: in call to ‘hipError_t hipEventRecord(hipEvent_t, hipStream_t)’, declared here
+ 2822 | hipError_t hipEventRecord(hipEvent_t event, hipStream_t stream = NULL);
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:1675:52: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 1675 |     for (int i = 0; i < n_ev; ++i) cudaEventDestroy(ev[i]);
+      |                                                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:2842:12: note: in call to ‘hipError_t hipEventDestroy(hipEvent_t)’, declared here
+ 2842 | hipError_t hipEventDestroy(hipEvent_t event);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:1689:13: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 1689 |     cudaFree(d);
+      |             ^
+/opt/rocm/include/hip/hip_runtime_api.h:3942:12: note: in call to ‘hipError_t hipFree(void*)’, declared here
+ 3942 | hipError_t hipFree(void* ptr);
+      |            ^~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:1690:17: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 1690 |     cudaFreeHost(h);
+      |                 ^
+/opt/rocm/include/hip/hip_runtime_api.h:3970:12: note: in call to ‘hipError_t hipHostFree(void*)’, declared here
+ 3970 | hipError_t hipHostFree(void* ptr);
+      |            ^~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:2408:25: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 2408 |         cudaGetLastError();
+      |                         ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:2514:93: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 2514 |                     if (cudaGetDeviceProperties(&prop, d) != cudaSuccess) { cudaGetLastError(); own = false; break; }
+      |                                                                                             ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:2536:25: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 2536 |         cudaGetLastError();
+      |                         ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:3155:25: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 3155 |         cudaGetLastError();
+      |                         ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:3163:33: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 3163 |                 cudaGetLastError();
+      |                                 ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:3173:23: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 3173 |         cudaMemGetInfo(&free_b, &total_b);
+      |                       ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:3497:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 3497 |             cudaMemGetInfo(&fb, &tb);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:3502:36: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 3502 |             cudaGetDeviceProperties(&dp, 0);
+      |                                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:1984:12: note: in call to ‘hipError_t hipGetDevicePropertiesR0600(hipDeviceProp_tR0600*, int)’, declared here
+ 1984 | hipError_t hipGetDeviceProperties(hipDeviceProp_t* prop, int deviceId);
+      |            ^~~~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:3589:29: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 3589 |             cudaGetLastError();
+      |                             ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:3591:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 3591 |             cudaMemGetInfo(&free_b, &total_b);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:3661:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 3661 |             cudaMemGetInfo(&fb, &tb);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:3840:35: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 3840 |             cudaDeviceGetAttribute(&sms, cudaDevAttrMultiProcessorCount, dev);
+      |                                   ^
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:90:19: note: in call to ‘hipError_t strata_device_get_attribute(int*, hipDeviceAttribute_t, int)’, declared here
+   90 | inline hipError_t strata_device_get_attribute(int* v, hipDeviceAttribute_t a, int dev) {
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:3842:29: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 3842 |             cudaGetLastError();
+      |                             ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:4381:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 4381 |             cudaMemGetInfo(&before, &total_b);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:4384:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 4384 |             cudaMemGetInfo(&fb, &tb);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:4476:23: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 4476 |         cudaMemGetInfo(&fb, &tb);
+      |                       ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:4584:37: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 4584 |                     cudaGetLastError();
+      |                                     ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:4585:49: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 4585 |                     if (buf != nullptr) cudaFree(buf);
+      |                                                 ^
+/opt/rocm/include/hip/hip_runtime_api.h:3942:12: note: in call to ‘hipError_t hipFree(void*)’, declared here
+ 3942 | hipError_t hipFree(void* ptr);
+      |            ^~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:4587:35: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 4587 |                     cudaMemGetInfo(&fb, &tb);
+      |                                   ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:4597:34: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 4597 |             cudaDeviceSynchronize();
+      |                                  ^
+/opt/rocm/include/hip/hip_runtime_api.h:1820:12: note: in call to ‘hipError_t hipDeviceSynchronize()’, declared here
+ 1820 | hipError_t hipDeviceSynchronize(void);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:4599:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 4599 |             cudaMemGetInfo(&fb, &tb);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:4664:31: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 4664 |                 cudaMemGetInfo(&fb, &tb);
+      |                               ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:4742:37: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 4742 |         if (!named) cudaGetLastError();
+      |                                     ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:5304:23: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 5304 |             cudaMemset(xcache.device_slot(0), 0, (size_t) xcache.bytes());
+      |                       ^
+/opt/rocm/include/hip/hip_runtime_api.h:4410:12: note: in call to ‘hipError_t hipMemset(void*, int, size_t)’, declared here
+ 4410 | hipError_t hipMemset(void* dst, int value, size_t sizeBytes);
+      |            ^~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:5305:34: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 5305 |             cudaDeviceSynchronize();
+      |                                  ^
+/opt/rocm/include/hip/hip_runtime_api.h:1820:12: note: in call to ‘hipError_t hipDeviceSynchronize()’, declared here
+ 1820 | hipError_t hipDeviceSynchronize(void);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:5458:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 5458 |             cudaMemGetInfo(&fb, &tb);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:5543:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 5543 |             cudaMemGetInfo(&fb, &tb);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:6190:17: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 6190 |         cudaFree(d_next);
+      |                 ^
+/opt/rocm/include/hip/hip_runtime_api.h:3942:12: note: in call to ‘hipError_t hipFree(void*)’, declared here
+ 3942 | hipError_t hipFree(void* ptr);
+      |            ^~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:6792:32: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 6792 |                 cudaMemcpyAsync(xcache.device_slot((int32_t) s), b, (size_t) lay.blob_bytes(l), cudaMemcpyHostToDevice,
+      |                                ^
+/opt/rocm/include/hip/hip_runtime_api.h:4399:12: note: in call to ‘hipError_t hipMemcpyAsync(void*, const void*, size_t, hipMemcpyKind, hipStream_t)’, declared here
+ 4399 | hipError_t hipMemcpyAsync(void* dst, const void* src, size_t sizeBytes, hipMemcpyKind kind,
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:7452:35: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 7452 |                     cudaMemGetInfo(&fb, &tb);
+      |                                   ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:7568:28: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 7568 |                     res_put(d_res);
+      |                     ~~~~~~~^~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:6307:20: note: in call to ‘main(int, char**)::<lambda(int32_t*)>’, declared here
+ 6307 |     auto res_put = [&host_res](int32_t* dst) -> cudaError_t {
+      |                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:7571:28: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 7571 |                     res_put(st->d_res);
+      |                     ~~~~~~~^~~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:6307:20: note: in call to ‘main(int, char**)::<lambda(int32_t*)>’, declared here
+ 6307 |     auto res_put = [&host_res](int32_t* dst) -> cudaError_t {
+      |                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:7891:37: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 7891 |                     cudaGetLastError();
+      |                                     ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:7903:41: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 7903 |                         cudaGetLastError();
+      |                                         ^
+/opt/rocm/include/hip/hip_runtime_api.h:2310:12: note: in call to ‘hipError_t hipGetLastError()’, declared here
+ 2310 | hipError_t hipGetLastError(void);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:7963:38: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 7963 |                 cudaStreamSynchronize(stage_ver_p(st, 0).stream());
+      |                                      ^
+/opt/rocm/include/hip/hip_runtime_api.h:2509:12: note: in call to ‘hipError_t hipStreamSynchronize(hipStream_t)’, declared here
+ 2509 | hipError_t hipStreamSynchronize(hipStream_t stream);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:7966:34: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 7966 |             cudaStreamSynchronize(mtp.stream());
+      |                                  ^
+/opt/rocm/include/hip/hip_runtime_api.h:2509:12: note: in call to ‘hipError_t hipStreamSynchronize(hipStream_t)’, declared here
+ 2509 | hipError_t hipStreamSynchronize(hipStream_t stream);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:8455:26: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 8455 |             cudaGetDevice(&main_dev);
+      |                          ^
+/opt/rocm/include/hip/hip_runtime_api.h:1890:12: note: in call to ‘hipError_t hipGetDevice(int*)’, declared here
+ 1890 | hipError_t hipGetDevice(int* deviceId);
+      |            ^~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:8540:33: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 8540 |         cudaEventCreateWithFlags(&adapt_ev, cudaEventDisableTiming);
+      |                                 ^
+/opt/rocm/include/hip/hip_runtime_api.h:2778:12: note: in call to ‘hipError_t hipEventCreateWithFlags(ihipEvent_t**, unsigned int)’, declared here
+ 2778 | hipError_t hipEventCreateWithFlags(hipEvent_t* event, unsigned flags);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:8598:24: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 8598 |                 res_put(d_res);
+      |                 ~~~~~~~^~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:6307:20: note: in call to ‘main(int, char**)::<lambda(int32_t*)>’, declared here
+ 6307 |     auto res_put = [&host_res](int32_t* dst) -> cudaError_t {
+      |                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:8601:24: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 8601 |                 res_put(st->d_res);
+      |                 ~~~~~~~^~~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:6307:20: note: in call to ‘main(int, char**)::<lambda(int32_t*)>’, declared here
+ 6307 |     auto res_put = [&host_res](int32_t* dst) -> cudaError_t {
+      |                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:8607:43: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 8607 |             if (wait) cudaEventSynchronize(adapt_ev);
+      |                                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:2861:12: note: in call to ‘hipError_t hipEventSynchronize(hipEvent_t)’, declared here
+ 2861 | hipError_t hipEventSynchronize(hipEvent_t event);
+      |            ^~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:8611:51: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 8611 |                     if (wait) cudaEventSynchronize(st->adapt_ev);
+      |                                                   ^
+/opt/rocm/include/hip/hip_runtime_api.h:2861:12: note: in call to ‘hipError_t hipEventSynchronize(hipEvent_t)’, declared here
+ 2861 | hipError_t hipEventSynchronize(hipEvent_t event);
+      |            ^~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:8709:43: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 8709 |                         cudaLaunchHostFunc(adapt_stream, [](void* p) { std::this_thread::sleep_for(std::chrono::microseconds(*(int*) p)); }, &slow_arg);
+      |                                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:5991:12: note: in call to ‘hipError_t hipLaunchHostFunc(hipStream_t, hipHostFn_t, void*)’, declared here
+ 5991 | hipError_t hipLaunchHostFunc(hipStream_t stream, hipHostFn_t fn, void* userData);
+      |            ^~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:8749:42: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 8749 |                     cudaStreamSynchronize(adapt_stream);   // no callback: wait here, the gate opens at once
+      |                                          ^
+/opt/rocm/include/hip/hip_runtime_api.h:2509:12: note: in call to ‘hipError_t hipStreamSynchronize(hipStream_t)’, declared here
+ 2509 | hipError_t hipStreamSynchronize(hipStream_t stream);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:8759:48: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 8759 |             if (!swaps.empty()) cudaEventRecord(adapt_ev, adapt_stream);
+      |                                                ^
+/opt/rocm/include/hip/hip_runtime_api.h:2822:12: note: in call to ‘hipError_t hipEventRecord(hipEvent_t, hipStream_t)’, declared here
+ 2822 | hipError_t hipEventRecord(hipEvent_t event, hipStream_t stream = NULL);
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:8764:36: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 8764 |                     cudaEventRecord(st->adapt_ev, st->adapt_stream);
+      |                                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:2822:12: note: in call to ‘hipError_t hipEventRecord(hipEvent_t, hipStream_t)’, declared here
+ 2822 | hipError_t hipEventRecord(hipEvent_t event, hipStream_t stream = NULL);
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:9228:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 9228 |             cudaMemGetInfo(&free_b, &total_b);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:9264:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 9264 |             cudaMemGetInfo(&free_b, &total_b);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:9430:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 9430 |             cudaMemGetInfo(&free_b, &total_b);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:9487:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+ 9487 |             cudaMemGetInfo(&free_b, &total_b);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4564:12: note: in call to ‘hipError_t hipMemGetInfo(size_t*, size_t*)’, declared here
+ 4564 | hipError_t hipMemGetInfo(size_t* free, size_t* total);
+      |            ^~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:9988:30: warning: unused variable ‘w’ [-Wunused-variable]
+ 9988 |                 const double w = (double) bt_windows, wall = std::chrono::duration<double, std::milli>(Clock::now() - bt_start).count();
+      |                              ^
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:10290:103: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+10290 |                     if (!kvg_ensure((int64_t) image.live.ids.size() + 256, [&] { cudaDeviceSynchronize(); apply_pending(true); })) {
+      |                                                                                                       ^
+/opt/rocm/include/hip/hip_runtime_api.h:1820:12: note: in call to ‘hipError_t hipDeviceSynchronize()’, declared here
+ 1820 | hipError_t hipDeviceSynchronize(void);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:10484:38: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+10484 |                 cudaDeviceSynchronize();
+      |                                      ^
+/opt/rocm/include/hip/hip_runtime_api.h:1820:12: note: in call to ‘hipError_t hipDeviceSynchronize()’, declared here
+ 1820 | hipError_t hipDeviceSynchronize(void);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:10492:46: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+10492 |                         cudaDeviceSynchronize();
+      |                                              ^
+/opt/rocm/include/hip/hip_runtime_api.h:1820:12: note: in call to ‘hipError_t hipDeviceSynchronize()’, declared here
+ 1820 | hipError_t hipDeviceSynchronize(void);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:10553:58: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+10553 |             auto kv_quiesce = [&] { cudaDeviceSynchronize(); apply_pending(true); };
+      |                                                          ^
+/opt/rocm/include/hip/hip_runtime_api.h:1820:12: note: in call to ‘hipError_t hipDeviceSynchronize()’, declared here
+ 1820 | hipError_t hipDeviceSynchronize(void);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:10793:38: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+10793 |                 cudaStreamSynchronize(main_stream);
+      |                                      ^
+/opt/rocm/include/hip/hip_runtime_api.h:2509:12: note: in call to ‘hipError_t hipStreamSynchronize(hipStream_t)’, declared here
+ 2509 | hipError_t hipStreamSynchronize(hipStream_t stream);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:10797:42: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+10797 |                     cudaStreamSynchronize(st->stream);
+      |                                          ^
+/opt/rocm/include/hip/hip_runtime_api.h:2509:12: note: in call to ‘hipError_t hipStreamSynchronize(hipStream_t)’, declared here
+ 2509 | hipError_t hipStreamSynchronize(hipStream_t stream);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:10812:42: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+10812 |                     cudaStreamSynchronize(main_stream);
+      |                                          ^
+/opt/rocm/include/hip/hip_runtime_api.h:2509:12: note: in call to ‘hipError_t hipStreamSynchronize(hipStream_t)’, declared here
+ 2509 | hipError_t hipStreamSynchronize(hipStream_t stream);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:10816:46: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+10816 |                         cudaStreamSynchronize(st->stream);
+      |                                              ^
+/opt/rocm/include/hip/hip_runtime_api.h:2509:12: note: in call to ‘hipError_t hipStreamSynchronize(hipStream_t)’, declared here
+ 2509 | hipError_t hipStreamSynchronize(hipStream_t stream);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:10952:48: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+10952 |                             cudaStreamWaitEvent(v.stream(), pl_mtp_ev[l1 & 1], 0);
+      |                                                ^
+/opt/rocm/include/hip/hip_runtime_api.h:2529:12: note: in call to ‘hipError_t hipStreamWaitEvent(hipStream_t, hipEvent_t, unsigned int)’, declared here
+ 2529 | hipError_t hipStreamWaitEvent(hipStream_t stream, hipEvent_t event, unsigned int flags __dparm(0));
+      |            ^~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:10968:48: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+10968 |                                 cudaEventRecord(pl_mtp_ev[f1 & 1], mtp.stream());
+      |                                                ^
+/opt/rocm/include/hip/hip_runtime_api.h:2822:12: note: in call to ‘hipError_t hipEventRecord(hipEvent_t, hipStream_t)’, declared here
+ 2822 | hipError_t hipEventRecord(hipEvent_t event, hipStream_t stream = NULL);
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:11581:44: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+11581 |                            (cudaStreamQuery(sn.side), true);
+      |                                            ^
+/opt/rocm/include/hip/hip_runtime_api.h:2488:12: note: in call to ‘hipError_t hipStreamQuery(hipStream_t)’, declared here
+ 2488 | hipError_t hipStreamQuery(hipStream_t stream);
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:11682:45: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+11682 |                     cudaEventCreateWithFlags(&fence_ev[(size_t) st], cudaEventDisableTiming);
+      |                                             ^
+/opt/rocm/include/hip/hip_runtime_api.h:2778:12: note: in call to ‘hipError_t hipEventCreateWithFlags(ihipEvent_t**, unsigned int)’, declared here
+ 2778 | hipError_t hipEventCreateWithFlags(hipEvent_t* event, unsigned flags);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:11683:45: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+11683 |                     cudaEventCreateWithFlags(&exch_ev[(size_t) st], cudaEventDisableTiming);
+      |                                             ^
+/opt/rocm/include/hip/hip_runtime_api.h:2778:12: note: in call to ‘hipError_t hipEventCreateWithFlags(ihipEvent_t**, unsigned int)’, declared here
+ 2778 | hipError_t hipEventCreateWithFlags(hipEvent_t* event, unsigned flags);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:11688:40: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+11688 |                         cudaEventRecord(ev[(size_t) st], pl_stream[(size_t) st]);
+      |                                        ^
+/opt/rocm/include/hip/hip_runtime_api.h:2822:12: note: in call to ‘hipError_t hipEventRecord(hipEvent_t, hipStream_t)’, declared here
+ 2822 | hipError_t hipEventRecord(hipEvent_t event, hipStream_t stream = NULL);
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:12134:73: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+12134 |                 for (cudaEvent_t ev : fence_ev) if (ev) cudaEventDestroy(ev);
+      |                                                                         ^
+/opt/rocm/include/hip/hip_runtime_api.h:2842:12: note: in call to ‘hipError_t hipEventDestroy(hipEvent_t)’, declared here
+ 2842 | hipError_t hipEventDestroy(hipEvent_t event);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:12135:72: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+12135 |                 for (cudaEvent_t ev : exch_ev) if (ev) cudaEventDestroy(ev);
+      |                                                                        ^
+/opt/rocm/include/hip/hip_runtime_api.h:2842:12: note: in call to ‘hipError_t hipEventDestroy(hipEvent_t)’, declared here
+ 2842 | hipError_t hipEventDestroy(hipEvent_t event);
+      |            ^~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:12251:31: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+12251 |                     cudaMemcpy(d_hist, hist_stage.data(), (size_t) T * (size_t) hist_n * sizeof(int32_t),
+      |                               ^
+/opt/rocm/include/hip/hip_runtime_api.h:4000:12: note: in call to ‘hipError_t hipMemcpy(void*, const void*, size_t, hipMemcpyKind)’, declared here
+ 4000 | hipError_t hipMemcpy(void* dst, const void* src, size_t sizeBytes, hipMemcpyKind kind);
+      |            ^~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:12256:72: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+12256 |                     !kvg_ensure(p + T + 64, [&] { cudaDeviceSynchronize(); apply_pending(true); })) {
+      |                                                                        ^
+/opt/rocm/include/hip/hip_runtime_api.h:1820:12: note: in call to ‘hipError_t hipDeviceSynchronize()’, declared here
+ 1820 | hipError_t hipDeviceSynchronize(void);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:12809:86: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+12809 |                 if (!kvg_ensure(n_prompt + o.max_new + 64, [] { cudaDeviceSynchronize(); })) return 1;
+      |                                                                                      ^
+/opt/rocm/include/hip/hip_runtime_api.h:1820:12: note: in call to ‘hipError_t hipDeviceSynchronize()’, declared here
+ 1820 | hipError_t hipDeviceSynchronize(void);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:12815:24: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+12815 |                 res_put(d_res);
+      |                 ~~~~~~~^~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:6307:20: note: in call to ‘main(int, char**)::<lambda(int32_t*)>’, declared here
+ 6307 |     auto res_put = [&host_res](int32_t* dst) -> cudaError_t {
+      |                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:12848:82: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+12848 |             if (!kvg_ensure(n_prompt + o.max_new + 64, [] { cudaDeviceSynchronize(); })) return 1;
+      |                                                                                  ^
+/opt/rocm/include/hip/hip_runtime_api.h:1820:12: note: in call to ‘hipError_t hipDeviceSynchronize()’, declared here
+ 1820 | hipError_t hipDeviceSynchronize(void);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:12877:20: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+12877 |             res_put(d_res);
+      |             ~~~~~~~^~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:6307:20: note: in call to ‘main(int, char**)::<lambda(int32_t*)>’, declared here
+ 6307 |     auto res_put = [&host_res](int32_t* dst) -> cudaError_t {
+      |                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:12900:78: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+12900 |         if (!kvg_ensure(n_prompt + o.max_new + 64, [] { cudaDeviceSynchronize(); })) return 1;
+      |                                                                              ^
+/opt/rocm/include/hip/hip_runtime_api.h:1820:12: note: in call to ‘hipError_t hipDeviceSynchronize()’, declared here
+ 1820 | hipError_t hipDeviceSynchronize(void);
+      |            ^~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:12982:23: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+12982 |             cudaMemcpy(final_r_host.data(), ss.R, final_r_host.size() * sizeof(float), cudaMemcpyDeviceToHost);
+      |                       ^
+/opt/rocm/include/hip/hip_runtime_api.h:4000:12: note: in call to ‘hipError_t hipMemcpy(void*, const void*, size_t, hipMemcpyKind)’, declared here
+ 4000 | hipError_t hipMemcpy(void* dst, const void* src, size_t sizeBytes, hipMemcpyKind kind);
+      |            ^~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:13204:33: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13204 |         cudaEventCreateWithFlags(&adapt_ev, cudaEventDisableTiming);
+      |                                 ^
+/opt/rocm/include/hip/hip_runtime_api.h:2778:12: note: in call to ‘hipError_t hipEventCreateWithFlags(ihipEvent_t**, unsigned int)’, declared here
+ 2778 | hipError_t hipEventCreateWithFlags(hipEvent_t* event, unsigned flags);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:13210:43: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13210 |             if (wait) cudaEventSynchronize(adapt_ev);
+      |                                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:2861:12: note: in call to ‘hipError_t hipEventSynchronize(hipEvent_t)’, declared here
+ 2861 | hipError_t hipEventSynchronize(hipEvent_t event);
+      |            ^~~~~~~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:13228:24: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13228 |                 res_put(d_res);
+      |                 ~~~~~~~^~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:6307:20: note: in call to ‘main(int, char**)::<lambda(int32_t*)>’, declared here
+ 6307 |     auto res_put = [&host_res](int32_t* dst) -> cudaError_t {
+      |                    ^
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In lambda function:
+<TARGET_REPO>/src/program/generate.cpp:13317:48: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13317 |             if (!swaps.empty()) cudaEventRecord(adapt_ev, adapt_stream);
+      |                                                ^
+/opt/rocm/include/hip/hip_runtime_api.h:2822:12: note: in call to ‘hipError_t hipEventRecord(hipEvent_t, hipStream_t)’, declared here
+ 2822 | hipError_t hipEventRecord(hipEvent_t event, hipStream_t stream = NULL);
+      |            ^~~~~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp: In function ‘int main(int, char**)’:
+<TARGET_REPO>/src/program/generate.cpp:13446:27: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13446 |                 cudaMemcpy(hash_rows.data(), ver.final_R_all(), n_floats * sizeof(float), cudaMemcpyDeviceToHost);
+      |                           ^
+/opt/rocm/include/hip/hip_runtime_api.h:4000:12: note: in call to ‘hipError_t hipMemcpy(void*, const void*, size_t, hipMemcpyKind)’, declared here
+ 4000 | hipError_t hipMemcpy(void* dst, const void* src, size_t sizeBytes, hipMemcpyKind kind);
+      |            ^~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:13621:21: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13621 |         cudaFreeHost(layer_stage);
+      |                     ^
+/opt/rocm/include/hip/hip_runtime_api.h:3970:12: note: in call to ‘hipError_t hipHostFree(void*)’, declared here
+ 3970 | hipError_t hipHostFree(void* ptr);
+      |            ^~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:13627:21: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13627 |         cudaFreeHost(half_stage);
+      |                     ^
+/opt/rocm/include/hip/hip_runtime_api.h:3970:12: note: in call to ‘hipError_t hipHostFree(void*)’, declared here
+ 3970 | hipError_t hipHostFree(void* ptr);
+      |            ^~~~~~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:13793:13: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13793 |     cudaFree(d_next);
+      |             ^
+/opt/rocm/include/hip/hip_runtime_api.h:3942:12: note: in call to ‘hipError_t hipFree(void*)’, declared here
+ 3942 | hipError_t hipFree(void* ptr);
+      |            ^~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:13794:13: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13794 |     cudaFree(d_logits);
+      |             ^
+/opt/rocm/include/hip/hip_runtime_api.h:3942:12: note: in call to ‘hipError_t hipFree(void*)’, declared here
+ 3942 | hipError_t hipFree(void* ptr);
+      |            ^~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:13795:13: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13795 |     cudaFree(d_emb);
+      |             ^
+/opt/rocm/include/hip/hip_runtime_api.h:3942:12: note: in call to ‘hipError_t hipFree(void*)’, declared here
+ 3942 | hipError_t hipFree(void* ptr);
+      |            ^~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:13796:13: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13796 |     cudaFree(d_parts);
+      |             ^
+/opt/rocm/include/hip/hip_runtime_api.h:3942:12: note: in call to ‘hipError_t hipFree(void*)’, declared here
+ 3942 | hipError_t hipFree(void* ptr);
+      |            ^~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:13797:13: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13797 |     cudaFree(sbuf);
+      |             ^
+/opt/rocm/include/hip/hip_runtime_api.h:3942:12: note: in call to ‘hipError_t hipFree(void*)’, declared here
+ 3942 | hipError_t hipFree(void* ptr);
+      |            ^~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+<TARGET_REPO>/src/program/generate.cpp:13798:13: warning: ignoring returned value of type ‘hipError_t’, declared with attribute ‘nodiscard’ [-Wunused-result]
+13798 |     cudaFree(arena);
+      |             ^
+/opt/rocm/include/hip/hip_runtime_api.h:3942:12: note: in call to ‘hipError_t hipFree(void*)’, declared here
+ 3942 | hipError_t hipFree(void* ptr);
+      |            ^~~~~~~
+/opt/rocm/include/hip/hip_runtime_api.h:399:3: note: ‘hipError_t’ declared here
+  399 | } hipError_t;
+      |   ^~~~~~~~~~
+[ 98%] Linking HIP executable strata
+[100%] Built target strata

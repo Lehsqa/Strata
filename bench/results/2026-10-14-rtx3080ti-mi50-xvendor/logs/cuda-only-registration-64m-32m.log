@@ -1,0 +1,17 @@
+host=Linux-7.0.0-34-generic-x86_64-with-glibc2.39 mode=large-registration main=cuda rounds=10000 bytes=67108864
+cuda: executable=<TARGET_REPO>/build-xvendor-cuda/tests/xvendor/strata-xvendor-handoff device=0 LD_LIBRARY_PATH=
+hip: executable=<TARGET_REPO>/build-xvendor-cuda/tests/xvendor/strata-xvendor-handoff device=0 LD_LIBRARY_PATH=
+child 0 log (524 bytes; last 64 KiB):
+vendor=CUDA visible_count=1 device=0 name=NVIDIA GeForce RTX 3080 Ti arch=sm_86
+RLIMIT_MEMLOCK soft=4094590976 hard=4094590976 (RLIM_INFINITY=18446744073709551615)
+/dev/shm total=16378363904 available=16378363904 bytes; memfd is not allocated on this mount
+simultaneously registered=67108864 bytes private committed arena=33554432 bytes per process
+registered H2D chunk=67104768 repeats=16 bandwidth=13.393 GB/s (synchronous wall time)
+PASS: simultaneous large registration + committed private arenas + registered transfers
+child 1 log (524 bytes; last 64 KiB):
+vendor=CUDA visible_count=1 device=0 name=NVIDIA GeForce RTX 3080 Ti arch=sm_86
+RLIMIT_MEMLOCK soft=4094590976 hard=4094590976 (RLIM_INFINITY=18446744073709551615)
+/dev/shm total=16378363904 available=16378363904 bytes; memfd is not allocated on this mount
+simultaneously registered=67108864 bytes private committed arena=33554432 bytes per process
+registered H2D chunk=67104768 repeats=16 bandwidth=13.459 GB/s (synchronous wall time)
+PASS: simultaneous large registration + committed private arenas + registered transfers

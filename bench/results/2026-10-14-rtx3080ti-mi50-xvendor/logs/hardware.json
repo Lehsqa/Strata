@@ -1,0 +1,102 @@
+{
+  "date": "2026-10-14",
+  "base_commit": "40bcc2ca4f971902559f3794273ca2946748355e",
+  "source_sha256": "262e52b2d272b3d3d07acb461c8ccd2c9f6f0b617e408246b9402297fa6c4054",
+  "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+  "meminfo": {
+    "MemTotal": "31988996 kB",
+    "MemAvailable": "30079708 kB",
+    "SwapTotal": "8388604 kB"
+  },
+  "cpu": "AMD Ryzen 5 7600X 6-Core Processor",
+  "pci": {
+    "0000:01:00.0": [
+      {
+        "device": "0000:00:01.1",
+        "current_speed": "2.5 GT/s PCIe",
+        "current_width": "16",
+        "max_speed": "32.0 GT/s PCIe",
+        "max_width": "16"
+      },
+      {
+        "device": "0000:01:00.0",
+        "current_speed": "2.5 GT/s PCIe",
+        "current_width": "16",
+        "max_speed": "16.0 GT/s PCIe",
+        "max_width": "16"
+      }
+    ],
+    "0000:07:00.0": [
+      {
+        "device": "0000:00:02.1",
+        "current_speed": "16.0 GT/s PCIe",
+        "current_width": "4",
+        "max_speed": "32.0 GT/s PCIe",
+        "max_width": "4"
+      },
+      {
+        "device": "0000:03:00.0",
+        "current_speed": "16.0 GT/s PCIe",
+        "current_width": "4",
+        "max_speed": "16.0 GT/s PCIe",
+        "max_width": "4"
+      },
+      {
+        "device": "0000:04:00.0",
+        "current_speed": "16.0 GT/s PCIe",
+        "current_width": "4",
+        "max_speed": "16.0 GT/s PCIe",
+        "max_width": "4"
+      },
+      {
+        "device": "0000:05:00.0",
+        "current_speed": "16.0 GT/s PCIe",
+        "current_width": "4",
+        "max_speed": "16.0 GT/s PCIe",
+        "max_width": "16"
+      },
+      {
+        "device": "0000:06:00.0",
+        "current_speed": "16.0 GT/s PCIe",
+        "current_width": "16",
+        "max_speed": "16.0 GT/s PCIe",
+        "max_width": "16"
+      },
+      {
+        "device": "0000:07:00.0",
+        "current_speed": "16.0 GT/s PCIe",
+        "current_width": "16",
+        "max_speed": "16.0 GT/s PCIe",
+        "max_width": "16"
+      }
+    ]
+  },
+  "nvidia": "NVIDIA GeForce RTX 3080 Ti, 595.84, 12288 MiB, 350.00 W, P8, 210 MHz, 405 MHz",
+  "cuda": "nvcc: NVIDIA (R) Cuda compiler driver\nCopyright (c) 2005-2023 NVIDIA Corporation\nBuilt on Fri_Jan__6_16:45:21_PST_2023\nCuda compilation tools, release 12.0, V12.0.140\nBuild cuda_12.0.r12.0/compiler.32267302_0",
+  "hip": "HIP version: 6.3.42134-a9a80e791\nAMD clang version 18.0.0git (https://github.com/RadeonOpenCompute/llvm-project roc-6.3.3 25012 e5bf7e55c91490b07c49d8960fa7983d864936c4)\nTarget: x86_64-unknown-linux-gnu\nThread model: posix\nInstalledDir: /opt/rocm-6.3.3/lib/llvm/bin\nConfiguration file: /opt/rocm-6.3.3/lib/llvm/bin/clang++.cfg",
+  "memlock_kib": [
+    "3998624",
+    "3998624"
+  ],
+  "amd": {
+    "pci_id": "1002:66a1",
+    "architecture": "gfx906:sramecc+:xnack-",
+    "reported_name": "AMD Radeon Graphics",
+    "vram_bytes": 34342961152,
+    "power_limit_uw": [
+      225000000
+    ]
+  },
+  "os_release": "PRETTY_NAME=\"Ubuntu 24.04.4 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.4 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo\n",
+  "ambient_gpu_env": {
+    "CUDA_VISIBLE_DEVICES": null,
+    "CUDA_DEVICE_ORDER": null,
+    "HIP_VISIBLE_DEVICES": null,
+    "ROCR_VISIBLE_DEVICES": null,
+    "HSA_ENABLE_SDMA": null,
+    "HSA_OVERRIDE_GFX_VERSION": null,
+    "CUDA_LAUNCH_BLOCKING": null,
+    "AMD_SERIALIZE_KERNEL": null,
+    "AMD_SERIALIZE_COPY": null
+  }
+}

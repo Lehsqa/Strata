@@ -1,0 +1,11 @@
+Worker expected scalar staged once to GPU before full validator. Original logs retained.
+host=Linux-7.0.0-34-generic-x86_64-with-glibc2.39 mode=doorbell main=cuda rounds=10000 bytes=749568
+cuda: executable=<TARGET_REPO>/build-xvendor-cuda/tests/xvendor/strata-xvendor-handoff device=0 LD_LIBRARY_PATH=
+hip: executable=<TARGET_REPO>/build-xvendor-hip/tests/xvendor/strata-xvendor-handoff device=0 LD_LIBRARY_PATH=/opt/rocm/lib
+child 0 log (384 bytes; last 64 KiB):
+vendor=CUDA visible_count=1 device=0 name=NVIDIA GeForce RTX 3080 Ti arch=sm_86
+PASS: mode=doorbell rounds=10000 zero stale values outbound=8x12804 f32 return=8x10240 f32 indices=8 i32 graph replay
+p50_us=1195.401 p99_us=1237.741 p99_lt_200=no
+extent: includes delayed producer (50 us), worker enqueue/check, host ring/payload observation and acknowledgment; later pipeline gate only
+child 1 log (89 bytes; last 64 KiB):
+vendor=HIP visible_count=1 device=0 name=AMD Radeon Graphics arch=gfx906:sramecc+:xnack-

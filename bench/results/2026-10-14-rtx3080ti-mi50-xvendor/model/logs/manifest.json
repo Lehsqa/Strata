@@ -1,0 +1,254 @@
+[
+  {
+    "file": "logs/remote-reference-cuda-cache2.json",
+    "source_sha256": "e98f39e196144ab1ace001b5259aa217cbf73affe54dc191e0a0b50862c1293a",
+    "published_sha256": "05e832f40a1fb5a67214b6163ac75dcac86867399084c6d3d66b837a4c6748e8",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/rdna-stage-links-build.log",
+    "source_sha256": "a4a9a7467d96747ff12fec156541fe786936e3fcf1a0a321695880643dceca2c",
+    "published_sha256": "75979a00416f01c5a5a1c14be432b45241bbab1568aa68dd1199733850ea7d0c",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-hip-150k-context.log",
+    "source_sha256": "f81f42479b0e762f2cfa40cfc55d7831e0f73ecb11a893c683184ecfcd8c54ef",
+    "published_sha256": "9d4b60f3b3de74ba2bb1252b457e64b217e5be1199ba704f4518575af2b9f775",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/mixed-cuda-hip-context-ladder.stdout.log",
+    "source_sha256": "1d39441fe4041e2af8956aaaa3b2410b3e84fecd5a2ea8fd330bd3a8287d48c1",
+    "published_sha256": "1d39441fe4041e2af8956aaaa3b2410b3e84fecd5a2ea8fd330bd3a8287d48c1",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/remote-reference-cuda-cache2.stdout.log",
+    "source_sha256": "62b1e6db184418c4d155c03bc1eb6647999b5b0718c996ca3525d459c3518440",
+    "published_sha256": "62b1e6db184418c4d155c03bc1eb6647999b5b0718c996ca3525d459c3518440",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/mixed-cuda-hip-short.json",
+    "source_sha256": "c8e17ba60898dfc5762c7d6898c9793f92edcb6979a989f3494ce46b403f1191",
+    "published_sha256": "d47ae1ce4d5769e153030891ef735f0673558432843d5bfd04cb2f1ceb5737b6",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-context-fixture-generation.log",
+    "source_sha256": "73927cf2387cba5ae0270b88e9cee8776331e82b00c534415bf4c92acc200123",
+    "published_sha256": "c0194d17df0d269e01a0e2272d9bcd6d39bcde963d4c2525c26228f13291df0b",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/fixture-manifest.json",
+    "source_sha256": "e7c8e582f80a76794456c6248c79e4f22ca4862888e038f6d320689b28db9512",
+    "published_sha256": "a6e03ba4a4e89fd6c71dae3621f5fef4609bdde57827e4460ba18b95153bc9bc",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/hip-remote-runtime-build.log",
+    "source_sha256": "e8c081e6389a9d4bdbc17d3ef75f3601b52e585ac0fdbdce88c525baba08e700",
+    "published_sha256": "0e204673ab2b22c81002410748ff51ea30d992163f561b07653c4fedaa21820e",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-native-pack.log",
+    "source_sha256": "e486dc4857318e2bf46be0e9f48f40a8fcc6d2202d7c7108eaf5f20995d2506c",
+    "published_sha256": "e486dc4857318e2bf46be0e9f48f40a8fcc6d2202d7c7108eaf5f20995d2506c",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-hip-150k-default-fixed.log",
+    "source_sha256": "19ca99dab10ca9be813e986e839ee3d0700ce8b0e47c38a34d36f4d33f650573",
+    "published_sha256": "5f742ebb6eac73bd67c19550a01e02020b39502370fa3ab792b32ffe875d6086",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-hip-4k-prompt-150k-context.log",
+    "source_sha256": "7896541e0a6f698d1b2507da701f340133b8b51db837e59c2adf98503581f424",
+    "published_sha256": "22ff3f6fbd5ca384b96f3195388ca0dfd706fc448c8e7c8e759757ae94e47529",
+    "omitted_prompt_lines": 1
+  },
+  {
+    "file": "logs/remote-reference-cuda-cache2.stderr.log",
+    "source_sha256": "6a75ed2a1041416a37876a60e588dacdbf736413b2a753e088e2bc4e6953bd45",
+    "published_sha256": "0326f2cf18d1b11a372dcf3b794a69b3b9fef3cbc6e0cb1f3f9afed7f176dff4",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-cuda-150k-default-after-links.log",
+    "source_sha256": "c79b0bf7f85db30b2890b9dfb8e26f89877f36e6c0c2ef2b73c404a39173e92c",
+    "published_sha256": "9a0b073a3faf0ddf741e95156c072f4154ee5157dfa69cd397cf07be89b291fe",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/remote-protocol-cpu.log",
+    "source_sha256": "cfc610b4f2ef3296d3224b80a7ccb8d2eb1e81ce4e71c8f9ec6176ca9caca2cd",
+    "published_sha256": "cfc610b4f2ef3296d3224b80a7ccb8d2eb1e81ce4e71c8f9ec6176ca9caca2cd",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-hip-32k-prompt-150k-context.log",
+    "source_sha256": "dedc637143bf5a41193f59026d38d84f6123218169dd45c8419cbe1f4e9ce80d",
+    "published_sha256": "582d0e11318dbdb13d2fdd0b8ab2bcc9551bf8b4ea2dfa93cbd1a8ca85e96203",
+    "omitted_prompt_lines": 1
+  },
+  {
+    "file": "logs/cuda-remote-runtime-build.log",
+    "source_sha256": "034803b12bdd320eae683b71ec072bc7e1d0d19862c5bc383076c0f76d31e6ef",
+    "published_sha256": "751b1a7d323d9ca26c1802e783b859635e05fcd532fb545ca0a4eacc8cddf098",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/remote-cuda-cuda-cache1.stderr.log",
+    "source_sha256": "25649ad3749d95006563b8b1e72a6d9812639734ff4909cd7122fa052c103914",
+    "published_sha256": "dc750578a10b72d22d7abcefd8a6311967c59c58883d6b27d0a16f8f27618478",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/mixed-cuda-hip-context-ladder.json",
+    "source_sha256": "0c42c72632da539a02f4d49c72410e41f947bee56cce645768c54f43c9412b87",
+    "published_sha256": "7dc6fa56b0afd9c7fd472ca84c956652e9d2ee964b375abbb8a82726f77d5f8c",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/mixed-cuda-hip-short.stdout.log",
+    "source_sha256": "3e8ad448aea592c58fe54a3dd8caa55a0d33ffa5fe2cfb561d9effadb9765c49",
+    "published_sha256": "3e8ad448aea592c58fe54a3dd8caa55a0d33ffa5fe2cfb561d9effadb9765c49",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-hip-150k-sh-stream-off-normal.log",
+    "source_sha256": "df924b3b23f47f27c469c10d628669afc925d5153b57ff829632f6cd75150647",
+    "published_sha256": "6dcb2394e35a5eef09216ced6a64b9903aa007e264164dbc4c3eee7298af489d",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-hip-131k-prompt-150k-context.log",
+    "source_sha256": "dbf824024b2289e8b09080b666dddc25361360323fe4a246edd2950afec0e1c0",
+    "published_sha256": "f16f66e075ec35b7be8e27862e8ea60866b24c9f80f5dc2a27283361c1d14758",
+    "omitted_prompt_lines": 1
+  },
+  {
+    "file": "logs/mixed-cuda-hip-short.stderr.log",
+    "source_sha256": "73f37deafea3b84900471173c3d0770221a9edb01c7dd136b0a4653eee17859b",
+    "published_sha256": "441844f28b2c222fbf63334ec1902f9173efeffc2063cf574a1be6c3319544ee",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-tokenizer-check.log",
+    "source_sha256": "1052c9680f7c8c644994d1c49518af1c24167ecf6ee17153749f93e1ae35b3f6",
+    "published_sha256": "1052c9680f7c8c644994d1c49518af1c24167ecf6ee17153749f93e1ae35b3f6",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-hip-150k-sh-stream-on-trace.log",
+    "source_sha256": "a4ec3643cf1082cfc33a97ac4312e5d0605db360b2f7a0ec0d1239db954f4a7c",
+    "published_sha256": "cd27b1c9527f0ac7b9f23989a03e5fa8c6a2a21b49f8dbb24792727064cb665e",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/remote-cuda-cuda-cache1.stdout.log",
+    "source_sha256": "752326a473f969ba324d0da4ad63672486f04468f4954b818ac9a37577a4e57d",
+    "published_sha256": "752326a473f969ba324d0da4ad63672486f04468f4954b818ac9a37577a4e57d",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/remote-cuda-cuda-cache1.json",
+    "source_sha256": "4a207de650a0df2d6c8a6be3b5f1e39b8f48ffef72698a99230e38c3c7510083",
+    "published_sha256": "3ecb7cf7f5b9c5d7304bea6b071e63c9a106d3f093cb73a69ec606384b22997c",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/mixed-cuda-hip-context-ladder.stderr.log",
+    "source_sha256": "26dd65d5fcec9da0a7b97f03c6ed5e638f4f3cf623077c9613f09635d9ad885c",
+    "published_sha256": "8fa0d9744848948389466ca7d4cb48ae9c5fb3af79dbbd7bbd5e0ce244c265d4",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/iq3s-cuda-150k-context.log",
+    "source_sha256": "617c5b533fcb39e6a2ddc0047a4d85e509d769feeb7433f44535193cd650c3b4",
+    "published_sha256": "bf57139a87d0c657cb53b9bbea3db2579bff2dc95399167357c4d2a614f2d130",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/parity-profile.json",
+    "source_sha256": "e4e79bdf27b80e698d9a57d1cd8c74b8b28309c51bd2dac2ea26bb3270b807fd",
+    "published_sha256": "e4e79bdf27b80e698d9a57d1cd8c74b8b28309c51bd2dac2ea26bb3270b807fd",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/generate_iq3s_context_fixtures.py",
+    "source_sha256": "8bf346c5112a434bf170d9721b1df0610eecf5c1aad9e27e19288c419ccc2f5e",
+    "published_sha256": "63341155644eeaa6335c8cb39403207812f17928f96ab47006673ea3eced01a2",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/model-artifacts.json",
+    "source_sha256": "eff06b783cf106b97ebfd51b25fd2d844bb995506916fa52c6eb365799270012",
+    "published_sha256": "eff06b783cf106b97ebfd51b25fd2d844bb995506916fa52c6eb365799270012",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/fixture-artifacts.json",
+    "source_sha256": "6c73b8c1dcae78e3b413ad88032223cc0ba4fe34205402ea9ad69bd5d856c255",
+    "published_sha256": "6c73b8c1dcae78e3b413ad88032223cc0ba4fe34205402ea9ad69bd5d856c255",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/engine-fault-results.json",
+    "source_sha256": "60401b48fa97bdca0e58f43591e1939381242e2b13825fde3e74faace0a7ae07",
+    "published_sha256": "d88108615a538d95c487c08dadc0e29add007f74091933eab295024ffdf2542c",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/engine-fault-no-orphans.json",
+    "source_sha256": "729c3ce7f0b0fe9df90c3397704716bf636804efb0450452b4a6f492dbb2bc82",
+    "published_sha256": "729c3ce7f0b0fe9df90c3397704716bf636804efb0450452b4a6f492dbb2bc82",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/engine_fault_validation.py",
+    "source_sha256": "1bd151563cc263c7d7c829eb7224cd916174e54cfc0ad37156e205eedaedda5a",
+    "published_sha256": "1bd151563cc263c7d7c829eb7224cd916174e54cfc0ad37156e205eedaedda5a",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/engine-fault-kill-worker.json",
+    "source_sha256": "ed2657466a768daa000e82a257d85d4f5fb53b5a48437909020fae43cb172c5e",
+    "published_sha256": "92aad984452f1a839f5fbce54a8aea4d85ddc8f19131dd47927a811da6d64a8e",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/engine-fault-kill-worker.stdout.log",
+    "source_sha256": "f0d33a6d83e352c1941285cba16d6f78015370d3f715379d23d9f2ff5b848f2d",
+    "published_sha256": "f0d33a6d83e352c1941285cba16d6f78015370d3f715379d23d9f2ff5b848f2d",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/engine-fault-kill-worker.stderr.log",
+    "source_sha256": "e4e9848fdf4ec7016036883ec5e3119a15d4ed32b2ea0b88379d652a7019612e",
+    "published_sha256": "2afe4a8c9e750a92b826b16faa1cc065951c661815a0060785c08c12b4ea3154",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/engine-fault-kill-parent.json",
+    "source_sha256": "35ace89ac301e9d3fdddac24554881833bfa4287abae8877911c5879c63ac724",
+    "published_sha256": "c1cc628a39eaf3fba5a931487fccfa2295554be33f3942bf836b31e130a7c86c",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/engine-fault-kill-parent.stdout.log",
+    "source_sha256": "7462fa3559b006005bf7b8b2e1e36d326bc154cff45cf99d59f31c3cdee04513",
+    "published_sha256": "7462fa3559b006005bf7b8b2e1e36d326bc154cff45cf99d59f31c3cdee04513",
+    "omitted_prompt_lines": 0
+  },
+  {
+    "file": "logs/engine-fault-kill-parent.stderr.log",
+    "source_sha256": "ab391f162008a263061149664bca6ecafc74900ec91a01a3d404e263bcd1872c",
+    "published_sha256": "3e80617be1adcacfe6ff1f05f343987aae5a51c2d0a03b0bdb50a573b72641fb",
+    "omitted_prompt_lines": 0
+  }
+]

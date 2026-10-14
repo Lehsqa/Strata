@@ -189,10 +189,11 @@ const bool g_no_batch_kv = env_on("STRATA_NO_BATCH_KV_STEP");   // #783 PR-d: pe
 // gfx1030 (RX 6800, Windows, 42.5 -> 56.4 t/s).  STRATA_SH_STREAM overrides either default: `=1` forks, `=0` does not.
 // Strix Halo (gfx1151, unified memory) is the exception: the fork pays there (+1.8% UD-IQ4_XS, +6.7% UD-Q4_K_XL decode
 // at 8K, ids identical), so the gfx1151 arch table sets STRATA_SH_STREAM=1.  Read on first use, after that table ran.
+// gfx906 also starts off: MI50 with ROCm 6.3.3 stalls launching an 8-token IQ3_S window with the fork on.
 bool sh_stream_on() {
     static const bool on = [] {
         if (const char* v = std::getenv("STRATA_SH_STREAM")) return v[0] != '0';
-#if defined(STRATA_USE_HIP)
+#if defined(STRATA_USE_HIP) || defined(STRATA_HIP_GFX906)
         return false;
 #else
         return true;
@@ -519,6 +520,7 @@ Verifier::~Verifier() {
 }
 
 bool Verifier::set_logit_bias(const std::vector<float>& bias, std::string& err) {
+    if (link_ && !link_->set_logit_bias(bias, err)) return false;
     if (next_ && !next_->set_logit_bias(bias, err)) return false;
     if (le_ < g_->n_layers) return true;
     const OnDevice on_device(device_);
@@ -2304,7 +2306,8 @@ bool Verifier::run(int T, const int32_t* tokens, int64_t pos0, PoolMultiFn pool,
     // the drafts were. Exact: a rejected row's draw is discarded, and no kept decision depends on a reused draw.
     if (le_ < g.n_layers) {   // a layer split's earlier stage: the hand-off is written (synced above)
         ++windows;
-        return next_ == nullptr || next_->run(T, tokens, pos0, pool, next_user_, out, err);
+        return link_ ? link_->run(T, tokens, pos0, pool, user, out, err) :
+            next_ == nullptr || next_->run(T, tokens, pos0, pool, next_user_, out, err);
     }
     const bool sampled = !sampling_.greedy && sampling_.temperature > 0.0f;
     if (head_sampling_ && (sampled || hist_d_ != nullptr || sampling_.logit_bias != nullptr)) {
@@ -2437,6 +2440,7 @@ void Verifier::publish_plan(void* ctx) {
 
 bool Verifier::window_logprobs(const int32_t* targets, int T, int64_t pos0, int32_t extra_id, std::FILE* out,
                                std::string& err) {
+    if (link_) { err = "window_logprobs: remote stage v1 does not support log-probability logging"; return false; }
     if (next_ != nullptr) return next_->window_logprobs(targets, T, pos0, extra_id, out, err);
     const OnDevice on_device(device_);
     if (head_logits_ == nullptr || n_vocab_ <= 0 || T <= 0 || targets == nullptr || out == nullptr) {
@@ -2510,7 +2514,7 @@ bool Verifier::commit(int n_keep, std::string& err) {
         // set_commit_async: no wait here - the next window runs on the same stream after it, and the drafter (its own
         // stream) reads only this window's final rows and its own K/V. h_commit_ is next written after the next window's
         // results are read, i.e. after this graph has run.  Everything else waits on commit_done_ (wait_commit).
-        if (!g_commit_async || next_ != nullptr) {
+        if (!g_commit_async || has_next()) {
             const cudaError_t se = cudaStreamSynchronize(cs_);
             if (se != cudaSuccess) { err = std::string("verify: commit: ") + cudaGetErrorString(se); return false; }
         } else {
@@ -2526,7 +2530,7 @@ bool Verifier::commit(int n_keep, std::string& err) {
             ss_->ple_prev[1] = last_tokens_[t];
         }
     ms_commit += ms_since(t0);
-    return next_ == nullptr || next_->commit(n_keep, err);
+    return link_ ? link_->commit(n_keep, err) : next_ == nullptr || next_->commit(n_keep, err);
 }
 
 bool Verifier::wait_commit(std::string& err) {
@@ -2536,13 +2540,14 @@ bool Verifier::wait_commit(std::string& err) {
         const cudaError_t se = cudaEventSynchronize(commit_done_);
         if (se != cudaSuccess) { err = std::string("verify: commit: ") + cudaGetErrorString(se); return false; }
     }
-    return next_ == nullptr || next_->wait_commit(err);
+    return link_ ? link_->wait_commit(err) : next_ == nullptr || next_->wait_commit(err);
 }
 
 
 // ================================ BATCH WINDOWS (see init_slots) ================================
 
 bool Verifier::init_slots(const std::vector<SessionState*>& slots, std::string& err) {
+    if (link_) { err = "verify: remote stage v1 does not support batch windows"; return false; }
     const OnDevice on_device(device_);
     if (g_ == nullptr || ss_ == nullptr) { err = "verify: init_slots before init"; return false; }
     if (slots.empty()) {
@@ -2762,7 +2767,7 @@ bool Verifier::stage_batch(const int* rows, int S, int hbase, const int32_t* tok
     // the row layout: a slot may own a contiguous group of rows (--batch-mtp), also across the stages of a layer split,
     // whose hand-off buffers hold kVerifyMaxT rows (a stage that hands rows on or takes them)
     if (const char* why = batch_rows_error(rows, S, pos, (int) slots_.size(), max_t_, hbase,
-                                           next_ != nullptr || lb_ > 0, kVerifyMaxT)) {
+                                           has_next() || lb_ > 0, kVerifyMaxT)) {
         err = why;
         return false;
     }
@@ -2842,6 +2847,7 @@ bool Verifier::run_slots(int S, const int32_t* tokens, const int64_t* pos, PoolM
 
 bool Verifier::run_slot_rows(const int* rows, int S, const int32_t* tokens, const int64_t* pos, PoolMultiFn pool,
                              void* user, int32_t* out, std::string& err) {
+    if (link_) { err = "verify: remote stage v1 does not support batch windows"; return false; }
     using namespace strata::kernels;
     const OnDevice on_device(device_);
     const ModelGeometry& g = *g_;
@@ -2951,6 +2957,7 @@ bool Verifier::commit_slots(std::string& err) {
 }
 
 bool Verifier::commit_slot_prefixes(const int* keep, std::string& err) {
+    if (link_) { err = "verify: remote stage v1 does not support batch windows"; return false; }
     const OnDevice on_device(device_);
     if (!last_batch_ || last_t_ < 1) { err = "verify: commit_slots without a batch window"; return false; }
     const int S = last_t_;
@@ -3006,6 +3013,7 @@ bool Verifier::sample_rows(int S, std::string& err) {
 }
 
 bool Verifier::batch_launch(int base, int S, const int32_t* tokens, const int64_t* pos, std::string& err) {
+    if (link_) { err = "verify: remote stage v1 does not support batch windows"; return false; }
     const OnDevice on_device(device_);
     if (b_running_) { err = "verify: batch_launch while this stage is busy"; return false; }
     int rows[8] = {};
@@ -3155,6 +3163,7 @@ void Verifier::note_nonfinite(int T, const int64_t* pos_b) {
 }
 
 bool Verifier::copy_logits(int t, float* host) const {
+    if (link_) return link_->copy_logits(t, host);
     if (next_ != nullptr) return next_->copy_logits(t, host);   // a layer split: the head is on the last stage
     if (head_logits_ == nullptr || host == nullptr || t < 0 || n_vocab_ <= 0) return false;
     return cudaMemcpy(host, head_logits_ + (size_t) t * (size_t) n_vocab_, (size_t) n_vocab_ * sizeof(float),
@@ -3186,6 +3195,7 @@ void Verifier::diag_pipelined(std::FILE* f, const char* name) const {
 }
 
 bool Verifier::capture_all(std::string& err) {
+    if (link_) { err = "verify: remote stage v1 does not support pipelined windows"; return false; }
     const OnDevice on_device(device_);
     if (g_ == nullptr) { err = "verify: capture_all before init"; return false; }
     if (remote_opt_ != nullptr) { err = "verify: pipelined windows do not serve --remote-expert-opt"; return false; }
@@ -3229,6 +3239,7 @@ void Verifier::pl_stage(int T, const int32_t* tokens, int64_t pos0, const int32_
 }
 
 bool Verifier::prestage(int T, const int32_t* tokens, int64_t pos0, const int32_t ple_prev[2], std::string& err) {
+    if (link_) { err = "verify: remote stage v1 does not support pipelined windows"; return false; }
     if (fl_active_) { err = "verify: a window is in flight on this verifier"; return false; }
     if (T < 1 || T > max_t_) { err = "verify: window size out of range"; return false; }
     if (pl_ple_rows_.empty()) { err = "verify: pipelined window not prepared (capture_all)"; return false; }
@@ -3240,6 +3251,7 @@ bool Verifier::prestage(int T, const int32_t* tokens, int64_t pos0, const int32_
 }
 
 bool Verifier::pl_launch(int T, const int32_t* tokens, int64_t pos0, std::string& err) {
+    if (link_) { err = "verify: remote stage v1 does not support pipelined windows"; return false; }
     const OnDevice on_device(device_);
     if (fl_active_) { err = "verify: a window is already in flight on this verifier"; return false; }
     if (released_.load()) { err = "verify: an earlier window never finished on the GPU (#267); restart the engine"; return false; }
@@ -3392,6 +3404,7 @@ bool Verifier::done(std::string& err) {
 }
 
 bool Verifier::pl_finish(int32_t* out, std::string& err) {
+    if (link_) { err = "verify: remote stage v1 does not support pipelined windows"; return false; }
     using namespace strata::kernels;
     const OnDevice on_device(device_);
     const ModelGeometry& g = *g_;
@@ -3419,6 +3432,7 @@ bool Verifier::pl_finish(int32_t* out, std::string& err) {
 }
 
 bool Verifier::pl_commit_async(int n_keep, std::string& err) {
+    if (link_) { err = "verify: remote stage v1 does not support pipelined windows"; return false; }
     const OnDevice on_device(device_);
     if (n_keep < 1 || n_keep > last_t_) { err = "verify: commit count out of range"; return false; }
     if (commit_exec_ == nullptr || ev_commit_ == nullptr) { err = "verify: pipelined commit not prepared"; return false; }

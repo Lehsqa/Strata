@@ -1,0 +1,6 @@
+CUDA_VISIBLE_DEVICES=1
+CUDA_DEVICE_ORDER=<unset>
+HIP_VISIBLE_DEVICES=<unset>
+ROCR_VISIBLE_DEVICES=<unset>
+vendor=HIP visible_count=1 device=0 name=AMD Radeon Graphics arch=gfx1036
+FAIL: cudaSetDeviceFlags(cudaDeviceMapHost): no CUDA-capable device is detected

@@ -1,0 +1,7 @@
+P8, 210 MHz, 405 MHz, 37, 10.11 W
+CUDA metadata diagnostic device=NVIDIA GeForce RTX 3080 Ti sm_86 threads=102432; identical kernel/full checking
+PASS expected=host-mapped measured_repeats=50 warmups=5 kernel_p50_us=1787.904 kernel_p99_us=1788.928 min=1787.904 max=1788.928
+PASS expected=device measured_repeats=50 warmups=5 kernel_p50_us=5.120 kernel_p99_us=5.216 min=5.120 max=6.144
+PASS expected=host-mapped measured_repeats=50 warmups=5 kernel_p50_us=1787.904 kernel_p99_us=1788.672 min=1786.880 max=1788.704
+PASS expected=device measured_repeats=50 warmups=5 kernel_p50_us=4.832 kernel_p99_us=5.120 min=4.096 max=5.824
+P2, 2025 MHz, 9251 MHz, 41, 33.98 W

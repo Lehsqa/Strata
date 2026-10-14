@@ -1,0 +1,10 @@
+host=Linux-7.0.0-34-generic-x86_64-with-glibc2.39 mode=spin main=cuda rounds=10000 bytes=749568
+cuda: executable=<TARGET_REPO>/build-xvendor-cuda/tests/xvendor/strata-xvendor-handoff device=0 LD_LIBRARY_PATH=
+hip: executable=<TARGET_REPO>/build-xvendor-hip/tests/xvendor/strata-xvendor-handoff device=0 LD_LIBRARY_PATH=/opt/rocm/lib
+child 0 log (384 bytes; last 64 KiB):
+vendor=CUDA visible_count=1 device=0 name=NVIDIA GeForce RTX 3080 Ti arch=sm_86
+PASS: mode=spin rounds=10000 zero stale values outbound=8x12804 f32 return=8x10240 f32 indices=8 i32 graph replay
+p50_us=269.229 p99_us=280.950 p99_lt_200=no
+extent: excludes main host fill/upload and return check/readback; includes both graph directions, CPU rendezvous and full worker processing/check
+child 1 log (89 bytes; last 64 KiB):
+vendor=HIP visible_count=1 device=0 name=AMD Radeon Graphics arch=gfx906:sramecc+:xnack-

@@ -216,6 +216,12 @@ of decode (one card 47.5 / 46.9 / 48.3 -> 50.5 / 48.5 / 51.3 tok/s with it on). 
 `bench/results/2026-10-04-community-rx-6800-windows`): on was 12-22% slower. 4x R9700: fork off was 13-45% faster.
 Linux RX 6000 users can try `STRATA_SH_STREAM=1`; the output is identical either way.
 
+On MI50-class gfx906 with ROCm 6.3.3, an IQ3_S eight-token graph run stalled
+with `STRATA_SH_STREAM=1` and timed out after 45 seconds. The same run with
+only `STRATA_SH_STREAM=0` completed. This experimental patch also defaults
+the fork off on gfx906; an explicit environment override remains available.
+See the [control runs](../bench/results/2026-10-14-rtx3080ti-mi50-xvendor/model/README.md).
+
 **The draft's side stream (`STRATA_MTP_SIDE_STREAM`):** HIP does not use the MTP drafter's branch stream, and since
 0.1.40.2 it does not create it (#1240: an R9700 lost prompt speed with it). gfx103x is the exception and creates it: on
 an RX 6800 under Windows (`STRATA_HIP_PROMPT_F16=1`, IQ3_XXS, two runs each) a 7.9K-token prompt reads at 798-808 tok/s
@@ -681,14 +687,24 @@ passes. Additional unpublished upstream fixture suites are not covered.
 
 The published performance table explicitly identifies the measured development
 snapshot; it must not be read as a benchmark of every subsequent rebase. Vision, long-context stress, broad answer-quality
-equivalence, other AMD cards, and mixed-vendor inference are not validated here.
+equivalence, other AMD cards, and mixed-vendor inference are not validated by
+that test suite. Separate mixed-vendor measurements are linked below.
 
-## Linux CUDA and HIP probe co-install
+## Linux CUDA/HIP mixed CLI and probes
 
-Mixed AMD/NVIDIA inference remains unsupported. The opt-in, manual
-[Phase 0 probes](../tests/xvendor/README.md) check shared registration, transfers
-and runtime coexistence before any engine integration. Their GPU builds and
-hardware gates are pending.
+Experimental Linux CLI inference can use a CUDA parent and HIP worker with
+`--stage-remote hip:EXE --stage-remote-devices 0 --layer-split K --serve`.
+This lane requires greedy decoding, native GGUF mmap experts, static caches,
+and an explicit two-stage split. It excludes MTP, sampling, prompt/session
+caches, vision, batching, and Python server/setup integration. On 2026-10-14,
+RTX 3080 Ti + MI50 completed an IQ3_S 149,900-token recall prompt with
+150,000 Q4 context cells; see [model results](../bench/results/2026-10-14-rtx3080ti-mi50-xvendor/model/README.md).
+
+The opt-in, manual [Phase 0 probes](../tests/xvendor/README.md) check shared registration, transfers
+and runtime coexistence before engine integration. CUDA 12.0 and native gfx906
+ROCm 6.3.3 builds and correctness checks passed on an RTX 3080 Ti + Vega 20 host;
+serialized latency failed the 200 us gate, and full registration capacity was
+not tested. See the [hardware report](../bench/results/2026-10-14-rtx3080ti-mi50-xvendor/README.md).
 
 For gfx906, build the HIP probe inside the community
 `mixa3607/rocm-gfx906:7.14-complete` image described above. Run the resulting

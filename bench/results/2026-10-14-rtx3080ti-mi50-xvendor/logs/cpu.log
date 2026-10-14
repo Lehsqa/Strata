@@ -1,0 +1,72 @@
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done (0.1s)
+-- Generating done (0.0s)
+-- Build files have been written to: <TARGET_REPO>/build-xvendor-cpu
+[ 33%] Building CXX object CMakeFiles/strata-xvendor-inproc.dir/xvendor_inproc.cpp.o
+[ 33%] Building CXX object CMakeFiles/strata-xvendor-shm-test.dir/shm_region_test.cpp.o
+[ 50%] Linking CXX executable strata-xvendor-inproc
+[ 50%] Built target strata-xvendor-inproc
+[ 66%] Building CXX object CMakeFiles/strata-xvendor-cli-test.dir/xvendor_cli_test.cpp.o
+[ 83%] Linking CXX executable strata-xvendor-shm-test
+[ 83%] Built target strata-xvendor-shm-test
+[100%] Linking CXX executable strata-xvendor-cli-test
+[100%] Built target strata-xvendor-cli-test
+CPU fork spin only: 10000 rounds, p50 215.869 us, p99 221.589 us
+CPU fork spin then futex: 10000 rounds, p50 223.069 us, p99 307.190 us
+CPU fork futex: 10000 rounds, p50 224.269 us, p99 292.679 us
+PASS: shared layout, fd ownership, timeout, peer exit, and fresh payloads
+PASS: bounded probe CLI and pre-GPU region-size query
+usage: test_runner.py [-h] --cuda CUDA --hip HIP [--main {cuda,hip}]
+                      [--cuda-device CUDA_DEVICE] [--hip-device HIP_DEVICE]
+                      [--hip-libdir HIP_LIBDIR]
+                      [--mode {spin,futex,doorbell,large-registration}]
+                      [--rounds ROUNDS] [--registration-mib REGISTRATION_MIB]
+                      [--arena-mib ARENA_MIB] [--delay-us DELAY_US]
+                      [--timeout TIMEOUT]
+test_runner.py: error: argument --rounds: must be 1..16777184
+usage: test_runner.py [-h] --cuda CUDA --hip HIP [--main {cuda,hip}]
+                      [--cuda-device CUDA_DEVICE] [--hip-device HIP_DEVICE]
+                      [--hip-libdir HIP_LIBDIR]
+                      [--mode {spin,futex,doorbell,large-registration}]
+                      [--rounds ROUNDS] [--registration-mib REGISTRATION_MIB]
+                      [--arena-mib ARENA_MIB] [--delay-us DELAY_US]
+                      [--timeout TIMEOUT]
+test_runner.py: error: argument --rounds: invalid parse value: 'nan'
+usage: test_runner.py [-h] --cuda CUDA --hip HIP [--main {cuda,hip}]
+                      [--cuda-device CUDA_DEVICE] [--hip-device HIP_DEVICE]
+                      [--hip-libdir HIP_LIBDIR]
+                      [--mode {spin,futex,doorbell,large-registration}]
+                      [--rounds ROUNDS] [--registration-mib REGISTRATION_MIB]
+                      [--arena-mib ARENA_MIB] [--delay-us DELAY_US]
+                      [--timeout TIMEOUT]
+test_runner.py: error: argument --timeout: must be 1..86400
+usage: test_runner.py [-h] --cuda CUDA --hip HIP [--main {cuda,hip}]
+                      [--cuda-device CUDA_DEVICE] [--hip-device HIP_DEVICE]
+                      [--hip-libdir HIP_LIBDIR]
+                      [--mode {spin,futex,doorbell,large-registration}]
+                      [--rounds ROUNDS] [--registration-mib REGISTRATION_MIB]
+                      [--arena-mib ARENA_MIB] [--delay-us DELAY_US]
+                      [--timeout TIMEOUT]
+test_runner.py: error: argument --arena-mib: must be 1..262144
+..FAIL: child exited; stopping peer
+child 0 log (0 bytes; last 64 KiB):
+child 1 log (0 bytes; last 64 KiB):
+.FAIL: [Errno 2] No such file or directory: '/does/not/exist'
+child 0 log (0 bytes; last 64 KiB):
+child 1 log (0 bytes; last 64 KiB):
+.FAIL: deadline exceeded; killing both GPU processes
+child 0 log (0 bytes; last 64 KiB):
+child 1 log (0 bytes; last 64 KiB):
+.
+----------------------------------------------------------------------
+Ran 5 tests in 0.478s
+
+OK

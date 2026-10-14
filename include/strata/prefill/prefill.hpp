@@ -15,6 +15,7 @@
 #include "strata/core/layer.hpp"
 #include "strata/core/session.hpp"
 #include "strata/core/weights.hpp"
+#include "strata/prefill/prefill_link.hpp"
 
 #include <cstdint>
 #include <functional>
@@ -158,8 +159,14 @@ public:
     /// to pinned host buffers (two, allocated by `init`) and runs `next` on them - on a thread, so the next stage
     /// reads chunk c while this one reads chunk c + 1.  `on_chunk` belongs on the last stage.  Set before `init`.
     void set_stage(int64_t layer_begin, int64_t layer_end, Prefill* next) {
-        stage_lb_ = layer_begin; stage_le_ = layer_end; next_ = next;
+        stage_lb_ = layer_begin; stage_le_ = layer_end; next_ = next; link_ = nullptr;
     }
+    /// Set after set_stage, before init. The link owns both host hand-off slots.
+    void set_stage_link(PrefillLink* link) { link_ = link; next_ = nullptr; }
+    /// Later-stage entry: host_rows holds n residual rows; consume them without draining the full chain.
+    bool run_stage_chunk(const int64_t* tokens, int64_t n, int64_t pos0, const float* host_rows,
+                         bool single_chunk, std::string& err);
+    bool drain_pipeline(std::string& err);
 
     /// LAYER SPLIT: `helper` is another stage's prompt path (another GPU).  A prompt of one chunk runs the stages one
     /// after the other, so while this stage reads it the helper's GPU idles: it then streams a share of this stage's
@@ -193,10 +200,10 @@ private:
     // Stage-1 pipeline: intermediate stages return after handing their chunk to
     // the direct successor. The public run() drains the chain once at prompt end.
     bool run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::string& err);
-    bool drain_pipeline(std::string& err);
 
     int64_t stage_lb_ = 0, stage_le_ = -1;
     Prefill* next_ = nullptr;
+    PrefillLink* link_ = nullptr;
     Prefill* helper_ = nullptr;         ///< set_stage_helper
     bool single_chunk_ = false;         ///< a later stage: the prompt is one chunk (set by the stage before)
     bool bind_stage_helper(int64_t T);  // binds the helper's buffers for a one-chunk prompt of T tokens

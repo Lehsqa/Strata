@@ -1,0 +1,82 @@
+[  0%] Building HIP object CMakeFiles/strata_core.dir/src/core/device.cu.o
+[  5%] Building HIP object CMakeFiles/strata_core.dir/src/core/pinned.cu.o
+<TARGET_REPO>/src/core/device.cu:79:9: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+   79 |         cudaGetLastError();
+      |         ^~~~~~~~~~~~~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:82:26: note: expanded from macro 'cudaGetLastError'
+   82 | #define cudaGetLastError hipGetLastError
+      |                          ^~~~~~~~~~~~~~~
+<TARGET_REPO>/src/core/device.cu:88:9: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+   88 |         cudaGetLastError();
+      |         ^~~~~~~~~~~~~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:82:26: note: expanded from macro 'cudaGetLastError'
+   82 | #define cudaGetLastError hipGetLastError
+      |                          ^~~~~~~~~~~~~~~
+<TARGET_REPO>/src/core/device.cu:342:16: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+  342 |     if (base_) cudaFree(base_);          // best effort: a destructor must not throw
+      |                ^~~~~~~~ ~~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:104:18: note: expanded from macro 'cudaFree'
+  104 | #define cudaFree hipFree
+      |                  ^~~~~~~
+3 errors generated when compiling for gfx906.
+<TARGET_REPO>/src/core/pinned.cu:502:47: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+  502 |             for (uint64_t off : slice_starts) cudaHostUnregister((uint8_t*) base + off);
+      |                                               ^~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:127:28: note: expanded from macro 'cudaHostUnregister'
+  127 | #define cudaHostUnregister hipHostUnregister
+      |                            ^~~~~~~~~~~~~~~~~
+<TARGET_REPO>/src/core/pinned.cu:504:13: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+  504 |             cudaHostUnregister(base);
+      |             ^~~~~~~~~~~~~~~~~~ ~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:127:28: note: expanded from macro 'cudaHostUnregister'
+  127 | #define cudaHostUnregister hipHostUnregister
+      |                            ^~~~~~~~~~~~~~~~~
+gmake[3]: *** [CMakeFiles/strata_core.dir/build.make:75: CMakeFiles/strata_core.dir/src/core/device.cu.o] Error 1
+gmake[3]: *** Waiting for unfinished jobs....
+<TARGET_REPO>/src/core/pinned.cu:778:5: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+  778 |     cudaStreamCreate(&s);
+      |     ^~~~~~~~~~~~~~~~ ~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:129:26: note: expanded from macro 'cudaStreamCreate'
+  129 | #define cudaStreamCreate hipStreamCreate
+      |                          ^~~~~~~~~~~~~~~
+<TARGET_REPO>/src/core/pinned.cu:782:9: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+  782 |         cudaMemcpyAsync(dst, src + off, (size_t) chunk, cudaMemcpyHostToDevice, s);
+      |         ^~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:107:25: note: expanded from macro 'cudaMemcpyAsync'
+  107 | #define cudaMemcpyAsync hipMemcpyAsync
+      |                         ^~~~~~~~~~~~~~
+<TARGET_REPO>/src/core/pinned.cu:784:5: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+  784 |     cudaStreamSynchronize(s);
+      |     ^~~~~~~~~~~~~~~~~~~~~ ~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:132:31: note: expanded from macro 'cudaStreamSynchronize'
+  132 | #define cudaStreamSynchronize hipStreamSynchronize
+      |                               ^~~~~~~~~~~~~~~~~~~~
+<TARGET_REPO>/src/core/pinned.cu:789:13: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+  789 |             cudaMemcpyAsync(dst, src + off, (size_t) chunk, cudaMemcpyHostToDevice, s);
+      |             ^~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:107:25: note: expanded from macro 'cudaMemcpyAsync'
+  107 | #define cudaMemcpyAsync hipMemcpyAsync
+      |                         ^~~~~~~~~~~~~~
+<TARGET_REPO>/src/core/pinned.cu:792:5: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+  792 |     cudaStreamSynchronize(s);
+      |     ^~~~~~~~~~~~~~~~~~~~~ ~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:132:31: note: expanded from macro 'cudaStreamSynchronize'
+  132 | #define cudaStreamSynchronize hipStreamSynchronize
+      |                               ^~~~~~~~~~~~~~~~~~~~
+<TARGET_REPO>/src/core/pinned.cu:795:5: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+  795 |     cudaStreamDestroy(s);
+      |     ^~~~~~~~~~~~~~~~~ ~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:131:27: note: expanded from macro 'cudaStreamDestroy'
+  131 | #define cudaStreamDestroy hipStreamDestroy
+      |                           ^~~~~~~~~~~~~~~~
+<TARGET_REPO>/src/core/pinned.cu:796:5: error: ignoring return value of function declared with 'nodiscard' attribute [-Werror,-Wunused-result]
+  796 |     cudaFree(dst);
+      |     ^~~~~~~~ ~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:104:18: note: expanded from macro 'cudaFree'
+  104 | #define cudaFree hipFree
+      |                  ^~~~~~~
+9 errors generated when compiling for gfx906.
+gmake[3]: *** [CMakeFiles/strata_core.dir/build.make:88: CMakeFiles/strata_core.dir/src/core/pinned.cu.o] Error 1
+gmake[2]: *** [CMakeFiles/Makefile2:378: CMakeFiles/strata_core.dir/all] Error 2
+gmake[1]: *** [CMakeFiles/Makefile2:2417: tests/xvendor/CMakeFiles/strata-xvendor-handoff.dir/rule] Error 2
+gmake: *** [Makefile:1181: strata-xvendor-handoff] Error 2

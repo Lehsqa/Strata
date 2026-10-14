@@ -5,10 +5,19 @@ same memfd pages and exchange mapped payloads. They also test runtime coexistenc
 in a single process. They do not add mixed-vendor inference to Strata. No probe is
 registered with ctest, and `STRATA_XVENDOR_TESTS` defaults to `OFF`.
 
-Status: CPU shared-memory transport and launcher checks pass. CUDA/HIP compilation,
-real transfers, registration capacity, runtime coexistence and latency gates are
-**PENDING**. CPU checks cannot clear a GPU gate. No mixed-vendor performance or
-support claim is made here.
+Status (2026-10-14): actual CUDA 12.0 and gfx906 ROCm 6.3.3 builds, mixed
+payload/doorbell checks, limited registration and narrow runtime coexistence
+passed on an RTX 3080 Ti + Vega 20 host. Serialized p99 still fails the 200 us
+gate; full 32 + 16 + 16 GiB capacity was not tested on its 30.51 GiB host RAM.
+See the [hardware report](../../bench/results/2026-10-14-rtx3080ti-mi50-xvendor/README.md).
+RDNA gfx1100 also compiled and linked with ROCm 6.3.3; runtime checks apply to
+gfx906 only. These probes add no engine inference support. Other toolchain
+versions remain unverified. After the user accepted the measured latency,
+a separate experimental CLI stage implementation passed IQ3_S recall with a
+149,900-token prompt and 150,000 Q4 context cells on RTX 3080 Ti + MI50. See
+[model report](../../bench/results/2026-10-14-rtx3080ti-mi50-xvendor/model/README.md)
+for scope and remaining gates. The successful gfx1100 build above is probe-only;
+the full engine build failed on existing ROCm 6.3 hipBLAS API incompatibilities.
 
 ## CPU checks (no GPU SDK needed)
 
@@ -51,10 +60,11 @@ cmake -S /workspace/Strata -B /workspace/xvendor-hip \
 cmake --build /workspace/xvendor-hip --target strata-xvendor-handoff xprobe_hip -j
 ```
 
-RDNA uses a separate build with `-DSTRATA_ENABLE_HIP=ON` and its actual
+RDNA uses a separate build with `-DSTRATA_ENABLE_HIP=ON` and the actual
 `-DCMAKE_HIP_ARCHITECTURES=gfx1100` (example). The handoff source is explicitly
-compiled as HIP for either AMD backend. These new probe targets have not yet been
-compiled with either GPU toolchain.
+compiled as HIP on either AMD backend. CUDA 12.0 and gfx906 ROCm 6.3.3 builds
+passed on the reported host. RDNA gfx1100 also compiled and linked with ROCm
+6.3.3; its hardware execution and other toolchain versions remain unverified.
 
 Run the copied HIP executable on the native host with the matching image's ROCm
 runtime tree; keep rocBLAS/Tensile files and relative paths intact. A read-only

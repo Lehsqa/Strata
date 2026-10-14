@@ -1,0 +1,14 @@
+INFO logit_bias=1 context=150000 kv=q4_0 kv_resident=0 expert_slots=4814 expert_cache_mib=8688 expert_slots_primary=4814 expert_cache_primary_mib=8688 spec=8 mtp_max=0 lookup=0 vram_free_mib=278 cvec=0 arena_mib=0 pool_workers=5 pcie_frac=0.00 spec_min_p=0.00 conversation_cache_mib=0 conversation_cache_slots=0 conversation_cache_min_free_mib=2560 conversation_cache_min_tokens=0 tail_role_token=-1 vram_elastic=0 engine=0.1.43.1
+READY 150000 stop
+RESUME 0
+PP 25 26 2407 10.4
+REUSED 0
+T 19
+T 248046
+DONE 2 26 2407.0 718.9 stop 0 0 0 224 240 0 0 2.0 26 0
+RESUME 0
+PP 25 26 734 34.0
+REUSED 0
+T 19
+T 248046
+DONE 2 26 734.4 138.3 stop 0 0 0 224 240 0 0 0.0 26 0

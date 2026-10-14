@@ -1,0 +1,25 @@
+diff --git a/tests/xvendor/xvendor_handoff.cu b/tests/xvendor/xvendor_handoff.cu
+index b988663c..d0d1a8a9 100644
+--- a/tests/xvendor/xvendor_handoff.cu
++++ b/tests/xvendor/xvendor_handoff.cu
+@@ -143,6 +143,7 @@ void handoff(xvendor::Region& region, const xvendor::Arguments& args, xvendor::W
+     DeviceMemory returned(xvendor::kReturnFloats * sizeof(float));
+     DeviceMemory indices(xvendor::kRows * sizeof(int32_t));
+     DeviceMemory errors(sizeof(int32_t));
++    DeviceMemory expected(sizeof(uint32_t));
+     cudaStream_t stream = nullptr;
+     XV_GPU(cudaStreamCreateWithFlags(&stream, cudaStreamNonBlocking));
+     auto& header = region.header();
+@@ -169,8 +170,11 @@ void handoff(xvendor::Region& region, const xvendor::Arguments& args, xvendor::W
+         worker_graph.capture(stream, [&] {
+             if (doorbell) strata::kernels::doorbell_wait(&mapped_header->gpu_request.value, &mapped_header->gpu_expected, reinterpret_cast<void*>(stream));
+             strata::kernels::copy_from_mapped(outbound.as<float>(), mapped_outbound, xvendor::kOutboundFloats, reinterpret_cast<void*>(stream));
++            // Cache GPU metadata once to avoid a PCIe read in every validator thread.
++            strata::kernels::copy_i32_from_mapped(expected.as<int32_t>(),
++                reinterpret_cast<const int32_t*>(&mapped_header->gpu_expected), 1, reinterpret_cast<void*>(stream));
+             validate_and_return<<<static_cast<unsigned>((xvendor::kOutboundFloats + 255) / 256), 256, 0, stream>>>(
+-                outbound.as<float>(), returned.as<float>(), indices.as<int32_t>(), &mapped_header->gpu_expected, errors.as<int32_t>());
++                outbound.as<float>(), returned.as<float>(), indices.as<int32_t>(), expected.as<uint32_t>(), errors.as<int32_t>());
+             strata::kernels::copy_from_mapped(mapped_returned, returned.as<float>(), xvendor::kReturnFloats, reinterpret_cast<void*>(stream));
+             strata::kernels::copy_i32_from_mapped(mapped_indices, indices.as<int32_t>(), xvendor::kRows, reinterpret_cast<void*>(stream));
+             strata::kernels::doorbell_ring(&mapped_header->gpu_response.value, reinterpret_cast<void*>(stream));

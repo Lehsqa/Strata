@@ -1,0 +1,1854 @@
+[  0%] Building CUDA object CMakeFiles/strata_core.dir/src/core/device.cu.o
+[  0%] Building CUDA object CMakeFiles/strata_core.dir/src/core/pinned.cu.o
+[  4%] Building CXX object CMakeFiles/strata_core.dir/src/platform/memory.cpp.o
+[  4%] Building CXX object CMakeFiles/strata_core.dir/src/core/graph.cpp.o
+[  4%] Building CXX object CMakeFiles/strata_core.dir/src/core/weights.cpp.o
+[  9%] Building CXX object CMakeFiles/strata_core.dir/src/core/layout.cpp.o
+[  9%] Linking CXX static library libstrata_core.a
+[  9%] Built target strata_core
+[ 14%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/dequant_s2.cu.o
+[ 14%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/s2_gemv.cu.o
+[ 14%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/s_gemv.cu.o
+[ 19%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/s2_gemv_quads.cu.o
+[ 19%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/s2_gemv_fast.cu.o
+<TARGET_REPO>/src/kernels/cuda/s2_gemv_quads.cu(31): warning #177-D: variable "strata::kernels::<unnamed>::CODES_PER_BYTE_S2" was declared but never referenced
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+[ 23%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/router_top10.cu.o
+[ 23%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/quantize_act.cu.o
+[ 23%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/rope.cu.o
+[ 28%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/sampler.cu.o
+[ 28%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/s2_gemv_q8.cu.o
+[ 28%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/s2_expert_grouped.cu.o
+[ 33%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/shared_expert.cu.o
+<TARGET_REPO>/src/kernels/cuda/shared_expert.cu(73): warning #177-D: function "strata::kernels::<unnamed>::to_f16_kernel" was declared but never referenced
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+<TARGET_REPO>/src/kernels/cuda/shared_expert.cu(140): warning #177-D: function "strata::kernels::<unnamed>::native_scalar_sigmoid_multi_kernel" was declared but never referenced
+
+[ 33%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/gr.cu.o
+[ 33%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/gdn.cu.o
+<TARGET_REPO>/src/kernels/cuda/gdn.cu(35): warning #177-D: function "strata::kernels::<unnamed>::softplus_f" was declared but never referenced
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+<TARGET_REPO>/src/kernels/cuda/gr.cu(112): warning #177-D: function "strata::kernels::<unnamed>::block_sum" was declared but never referenced
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+[ 38%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/qsa.cu.o
+[ 38%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/elementwise.cu.o
+[ 38%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/bf16_gemv.cu.o
+[ 42%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_mmvq.cu.o
+[ 42%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_bf16.cu.o
+[ 47%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_gr_norm.cu.o
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=32, NT=4, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=32]" 
+(280): here
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=32, NT=4, RPB=4, TS=true, AUX=true]" 
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=32]" 
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(280): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=32, NT=8, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=32]" 
+(280): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=32, NT=4, RPB=4, TS=true, AUX=false]" 
+(246): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=32]" 
+(280): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=32, NT=8, RPB=4, TS=true, AUX=false]" 
+(247): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=32]" 
+(280): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=64, NT=4, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=64]" 
+(281): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=64, NT=8, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=64]" 
+(281): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=64, NT=4, RPB=4, TS=true, AUX=false]" 
+(246): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=64]" 
+(281): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=64, NT=8, RPB=4, TS=true, AUX=false]" 
+(247): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=64]" 
+(281): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=96, NT=4, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=96]" 
+(282): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=96, NT=8, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=96]" 
+(282): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=96, NT=4, RPB=4, TS=true, AUX=false]" 
+(246): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=96]" 
+(282): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=96, NT=8, RPB=4, TS=true, AUX=false]" 
+(247): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=96]" 
+(282): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=128, NT=4, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=128]" 
+(283): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=128, NT=8, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=128]" 
+(283): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=128, NT=4, RPB=4, TS=true, AUX=false]" 
+(246): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=128]" 
+(283): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=128, NT=8, RPB=4, TS=true, AUX=false]" 
+(247): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=128]" 
+(283): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=160, NT=4, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=160]" 
+(284): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=160, NT=8, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=160]" 
+(284): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=160, NT=4, RPB=4, TS=true, AUX=false]" 
+(246): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=160]" 
+(284): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=160, NT=8, RPB=4, TS=true, AUX=false]" 
+(247): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=160]" 
+(284): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=192, NT=4, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=192]" 
+(285): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=192, NT=8, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=192]" 
+(285): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=192, NT=4, RPB=4, TS=true, AUX=false]" 
+(246): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=192]" 
+(285): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=192, NT=8, RPB=4, TS=true, AUX=false]" 
+(247): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=192]" 
+(285): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=224, NT=4, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=224]" 
+(286): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=224, NT=8, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=224]" 
+(286): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=224, NT=4, RPB=4, TS=true, AUX=false]" 
+(246): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=224]" 
+(286): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=224, NT=8, RPB=4, TS=true, AUX=false]" 
+(247): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=224]" 
+(286): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=256, NT=4, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=256]" 
+(287): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=256, NT=8, RPB=4, TS=true, AUX=true]" 
+(241): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=256]" 
+(287): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=256, NT=4, RPB=4, TS=true, AUX=false]" 
+(246): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=256]" 
+(287): here
+
+<TARGET_REPO>/src/kernels/cuda/native_bf16.cu(206): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::bf16_f32_mmvf_rows_kernel<BLOCK_SIZE,NT,RPB,TS,AUX>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, const uint16_t *, float *, int64_t) [with BLOCK_SIZE=256, NT=8, RPB=4, TS=true, AUX=false]" 
+(247): here
+            instantiation of "void strata::kernels::<unnamed>::launch_rows<B>(const float *, int64_t, const uint16_t *, float *, int64_t, int, int, int, cudaStream_t, const uint16_t *, float *, int64_t) [with B=256]" 
+(287): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=2]" 
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=2, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=3, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=4, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=5, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=6, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=7, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=8, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q5KTraits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q5KTraits]" 
+(2154): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=2, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=3, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=4, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=5, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=6, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=7, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=8, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q20Traits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q20Traits]" 
+(2195): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=2, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=3, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=4, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=5, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=6, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=7, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+[ 47%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_moe.cu.o
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=8, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q3KTraits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q3KTraits]" 
+(2235): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=2, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=3, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=4, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=5, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=6, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=7, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=8, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::IQ4XSTraits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::IQ4XSTraits]" 
+(2275): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=2, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=3, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=4, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=5, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=6, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=7, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=8, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q4KTraits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q4KTraits]" 
+(2315): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=2, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=3, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=4, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=5, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=6, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=7, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=8, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::Q6KTraits, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::Q6KTraits]" 
+(2356): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=2, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=3, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=4, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=5, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=6, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=7, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=8, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q40Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q40Block, Qi=4]" 
+(2388): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=2, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=3, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=4, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=5, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=6, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=7, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=8, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q50Block, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q50Block, Qi=4]" 
+(2398): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=true]" 
+(2412): here
+            instantiation of "void strata::kernels::q8_0_pair_launch<NCOLS>(const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q81Block *, float *, float *, int, int, cudaStream_t) [with NCOLS=2]" 
+(2431): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=true]" 
+(2412): here
+            instantiation of "void strata::kernels::q8_0_pair_launch<NCOLS>(const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q81Block *, float *, float *, int, int, cudaStream_t) [with NCOLS=3]" 
+(2432): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=true]" 
+(2412): here
+            instantiation of "void strata::kernels::q8_0_pair_launch<NCOLS>(const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q81Block *, float *, float *, int, int, cudaStream_t) [with NCOLS=4]" 
+(2433): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=true]" 
+(2412): here
+            instantiation of "void strata::kernels::q8_0_pair_launch<NCOLS>(const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q81Block *, float *, float *, int, int, cudaStream_t) [with NCOLS=5]" 
+(2434): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=true]" 
+(2412): here
+            instantiation of "void strata::kernels::q8_0_pair_launch<NCOLS>(const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q81Block *, float *, float *, int, int, cudaStream_t) [with NCOLS=6]" 
+(2435): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=true]" 
+(2412): here
+            instantiation of "void strata::kernels::q8_0_pair_launch<NCOLS>(const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q81Block *, float *, float *, int, int, cudaStream_t) [with NCOLS=7]" 
+(2436): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=true]" 
+(2412): here
+            instantiation of "void strata::kernels::q8_0_pair_launch<NCOLS>(const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q80Block *, const strata::kernels::<unnamed>::Q81Block *, float *, float *, int, int, cudaStream_t) [with NCOLS=8]" 
+(2437): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=2, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=3, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=4, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=5, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=6, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=7, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=8, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::Q80Block, 8>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::Q80Block, Qi=8]" 
+(2446): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=2, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=2, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=2]" 
+(1298): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=3, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=3, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=3]" 
+(1299): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=4, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=4, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=4]" 
+(1300): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=5, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=5, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=5]" 
+(1301): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=6, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=6, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=6]" 
+(1302): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=7, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=7, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=7]" 
+(1303): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=8, NW=4, ROWS=1, TS=true, PAIR=false]" 
+(1283): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+<TARGET_REPO>/src/kernels/cuda/native_mmvq.cu(1250): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::native_mmvq_multi_kernel<F,NCOLS,NW,ROWS,TS,PAIR>(const F::Block *, const strata::kernels::<unnamed>::Q81Block *, float *, int, int, const F::Block *, float *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=8, NW=4, ROWS=2, TS=true, PAIR=false]" 
+(1289): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi_n<F,NCOLS>(const void *, const void *, float *, int, int, cudaStream_t) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>, NCOLS=8]" 
+(1304): here
+            instantiation of "void strata::kernels::<unnamed>::launch_multi<F>(const void *, const void *, float *, int, int, int, void *) [with F=strata::kernels::<unnamed>::SmallTraits<strata::kernels::<unnamed>::IQ4NLBlock, 4>]" 
+(1653): here
+            instantiation of "void strata::kernels::<unnamed>::small_mmvq<Weight,Qi>(const void *, const void *, float *, int, int, int, void *) [with Weight=strata::kernels::<unnamed>::IQ4NLBlock, Qi=4]" 
+(2456): here
+
+[ 47%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_gdn.cu.o
+[ 52%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_gr_postops.cu.o
+[ 52%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_router.cu.o
+[ 52%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/route_prior.cu.o
+[ 57%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_gdn_preprocess.cu.o
+[ 57%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_qsa.cu.o
+[ 57%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_rope.cu.o
+[ 61%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_ple_postops.cu.o
+[ 61%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_flash_attn.cu.o
+[ 61%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_qsa_indexer.cu.o
+[ 66%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/native_qsa_score.cu.o
+[ 66%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/ple.cu.o
+<TARGET_REPO>/src/kernels/cuda/ple.cu(376): warning #177-D: variable "hc" was declared but never referenced
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+[ 71%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/kv_q8.cu.o
+[ 71%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/kv_stream.cu.o
+[ 71%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/kv_q4.cu.o
+[ 76%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/fused_gr.cu.o
+[ 76%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/cvec.cu.o
+<TARGET_REPO>/src/kernels/cuda/fused_gr.cu(381): warning #177-D: variable "strata::kernels::<unnamed>::Q32_WARPS" was declared but never referenced
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+<TARGET_REPO>/src/kernels/cuda/fused_gr.cu(381): warning #177-D: variable "strata::kernels::<unnamed>::Q32_BLOCKS" was declared but never referenced
+
+<TARGET_REPO>/src/kernels/cuda/fused_gr.cu(466): warning #177-D: variable "strata::kernels::<unnamed>::TQ3" was declared but never referenced
+
+<TARGET_REPO>/src/kernels/cuda/fused_gr.cu(788): warning #177-D: function "strata::kernels::<unnamed>::dot8v" was declared but never referenced
+
+<TARGET_REPO>/src/kernels/cuda/fused_gr.cu(1026): warning #177-D: function "strata::kernels::<unnamed>::qfuse_hc_local" was declared but never referenced
+
+[ 76%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/qsa_decode_attn.cu.o
+[ 80%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/qsa_prompt_attn.cu.o
+[ 80%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/fused_gdn.cu.o
+[ 80%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/dequant_bf16.cu.o
+[ 85%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/qsa_select.cu.o
+[ 85%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/verify_kernels.cu.o
+<TARGET_REPO>/src/kernels/cuda/verify_kernels.cu(227): warning #20199-D: unrecognized #pragma in device code
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+<TARGET_REPO>/src/kernels/cuda/verify_kernels.cu(1170): warning #177-D: function "strata::kernels::<unnamed>::resident_plan_par_kernel" was declared but never referenced
+
+[ 85%] Building CUDA object CMakeFiles/strata_kernels.dir/src/kernels/cuda/iq_kernels.cu.o
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(2315): warning #20199-D: unrecognized #pragma in device code
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(2187): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::s26_gu_l_kernel<LT,LX,RPW,SL,TS>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *, float *) [with LT=true, LX=true, RPW=4, SL=true, TS=true]" 
+(2338): here
+            instantiation of "void strata::kernels::<unnamed>::s26_launch_l<LT,LX,RG,RD,SL,FQ,TS,BD>(const strata::kernels::NativeExpertLayout &, int64_t, cudaStream_t, const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, float *, float *, float *, block_q8_1 *, float *, long long) [with LT=true, LX=true, RG=4, RD=4, SL=true, FQ=true, TS=true, BD=1]" 
+(3470): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(2298): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::s26_down_l_kernel<LX,RPW,SL,TS,BAL>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *) [with LX=true, RPW=4, SL=true, TS=true, BAL=1]" 
+(2346): here
+            instantiation of "void strata::kernels::<unnamed>::s26_launch_l<LT,LX,RG,RD,SL,FQ,TS,BD>(const strata::kernels::NativeExpertLayout &, int64_t, cudaStream_t, const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, float *, float *, float *, block_q8_1 *, float *, long long) [with LT=true, LX=true, RG=4, RD=4, SL=true, FQ=true, TS=true, BD=1]" 
+(3470): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(2554): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::s27_gu_kernel<TG,LX,RPW,TS>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *, float *) [with TG=12, LX=true, RPW=4, TS=true]" 
+(2652): here
+            instantiation of "void strata::kernels::<unnamed>::s27_launch<TG,TD,LX,RG,RD,TS>(const strata::kernels::NativeExpertLayout &, int64_t, cudaStream_t, const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, float *, float *, float *, block_q8_1 *, float *, long long) [with TG=12, TD=7, LX=true, RG=4, RD=4, TS=true]" 
+(2662): here
+            instantiation of "void strata::kernels::<unnamed>::s27_launch_ts<TG,TD>(__nv_bool, const strata::kernels::NativeExpertLayout &, int64_t, cudaStream_t, const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, float *, float *, float *, block_q8_1 *, float *, long long) [with TG=12, TD=7]" 
+(3484): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(2635): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::s27_down_kernel<TD,LX,RPW,TS>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *) [with TD=7, LX=true, RPW=4, TS=true]" 
+(2655): here
+            instantiation of "void strata::kernels::<unnamed>::s27_launch<TG,TD,LX,RG,RD,TS>(const strata::kernels::NativeExpertLayout &, int64_t, cudaStream_t, const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, float *, float *, float *, block_q8_1 *, float *, long long) [with TG=12, TD=7, LX=true, RG=4, RD=4, TS=true]" 
+(2662): here
+            instantiation of "void strata::kernels::<unnamed>::s27_launch_ts<TG,TD>(__nv_bool, const strata::kernels::NativeExpertLayout &, int64_t, cudaStream_t, const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, float *, float *, float *, block_q8_1 *, float *, long long) [with TG=12, TD=7]" 
+(3484): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(2635): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::s27_down_kernel<TD,LX,RPW,TS>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *) [with TD=8, LX=true, RPW=4, TS=true]" 
+(2655): here
+            instantiation of "void strata::kernels::<unnamed>::s27_launch<TG,TD,LX,RG,RD,TS>(const strata::kernels::NativeExpertLayout &, int64_t, cudaStream_t, const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, float *, float *, float *, block_q8_1 *, float *, long long) [with TG=12, TD=8, LX=true, RG=4, RD=4, TS=true]" 
+(2662): here
+            instantiation of "void strata::kernels::<unnamed>::s27_launch_ts<TG,TD>(__nv_bool, const strata::kernels::NativeExpertLayout &, int64_t, cudaStream_t, const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, float *, float *, float *, block_q8_1 *, float *, long long) [with TG=12, TD=8]" 
+(3485): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(2554): warning #128-D: loop is not reachable
+          detected during:
+            instantiation of "void strata::kernels::<unnamed>::s27_gu_kernel<TG,LX,RPW,TS>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *, float *) [with TG=13, LX=true, RPW=4, TS=true]" 
+(2652): here
+            instantiation of "void strata::kernels::<unnamed>::s27_launch<TG,TD,LX,RG,RD,TS>(const strata::kernels::NativeExpertLayout &, int64_t, cudaStream_t, const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, float *, float *, float *, block_q8_1 *, float *, long long) [with TG=13, TD=7, LX=true, RG=4, RD=4, TS=true]" 
+(2662): here
+            instantiation of "void strata::kernels::<unnamed>::s27_launch_ts<TG,TD>(__nv_bool, const strata::kernels::NativeExpertLayout &, int64_t, cudaStream_t, const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, float *, float *, float *, block_q8_1 *, float *, long long) [with TG=13, TD=7]" 
+(3486): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(3230): warning #128-D: loop is not reachable
+          detected during instantiation of "void strata::kernels::native_gu_lds_kernel<TG,SG,TI>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *, float *) [with TG=16, SG=1, TI=true]" 
+(3530): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(3230): warning #128-D: loop is not reachable
+          detected during instantiation of "void strata::kernels::native_gu_lds_kernel<TG,SG,TI>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *, float *) [with TG=18, SG=1, TI=true]" 
+(3531): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(3230): warning #128-D: loop is not reachable
+          detected during instantiation of "void strata::kernels::native_gu_lds_kernel<TG,SG,TI>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *, float *) [with TG=21, SG=1, TI=true]" 
+(3532): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(3230): warning #128-D: loop is not reachable
+          detected during instantiation of "void strata::kernels::native_gu_lds_kernel<TG,SG,TI>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *, float *) [with TG=23, SG=1, TI=true]" 
+(3533): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(3230): warning #128-D: loop is not reachable
+          detected during instantiation of "void strata::kernels::native_gu_lds_kernel<TG,SG,TI>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *, float *) [with TG=22, SG=1, TI=true]" 
+(3534): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(2845): warning #20058-D: the #pragma unroll must precede a loop
+          detected during instantiation of "void strata::kernels::native_gu_amd_kernel<TG,MODE>(const unsigned long long *, const int32_t *, const int32_t *, const int32_t *, const block_q8_1 *, strata::kernels::NativeExpertLayout, float *, float *) [with TG=16, MODE=1]" 
+(3548): here
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(596): warning #177-D: function "strata::kernels::<unnamed>::Fmt<14>::dot" was declared but never referenced
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(595): warning #177-D: member "strata::kernels::<unnamed>::Fmt<14>::qk" was declared but never referenced
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(595): warning #177-D: member "strata::kernels::<unnamed>::Fmt<14>::ipb" was declared but never referenced
+
+<TARGET_REPO>/src/kernels/cuda/iq_kernels.cu(595): warning #177-D: member "strata::kernels::<unnamed>::Fmt<14>::step" was declared but never referenced
+
+[ 90%] Building CXX object CMakeFiles/strata_kernels.dir/src/kernels/ngram.cpp.o
+[ 90%] Building CXX object CMakeFiles/strata_kernels.dir/src/ngram/ple_reader.cpp.o
+[ 90%] Building CXX object CMakeFiles/strata_kernels.dir/src/platform/direct_file.cpp.o
+[ 95%] Linking CXX static library libstrata_kernels.a
+[ 95%] Built target strata_kernels
+[100%] Building CUDA object tests/xvendor/CMakeFiles/strata-xvendor-handoff.dir/xvendor_handoff.cu.o
+[100%] Linking CXX executable strata-xvendor-handoff
+[100%] Built target strata-xvendor-handoff
+[  0%] Building CXX object tests/xvendor/CMakeFiles/xprobe_cuda.dir/xprobe.cpp.o
+[100%] Linking CXX shared library libxprobe_cuda.so
+[100%] Built target xprobe_cuda
+[  0%] Building CXX object tests/xvendor/CMakeFiles/strata-xvendor-inproc.dir/xvendor_inproc.cpp.o
+[100%] Linking CXX executable strata-xvendor-inproc
+[100%] Built target strata-xvendor-inproc

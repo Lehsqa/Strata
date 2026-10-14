@@ -1,0 +1,12 @@
+Worker expected scalar staged once to GPU before full validator. Original logs retained.
+host=Linux-7.0.0-34-generic-x86_64-with-glibc2.39 mode=futex main=hip rounds=100 bytes=749568
+cuda: executable=<TARGET_REPO>/build-xvendor-cuda/tests/xvendor/strata-xvendor-handoff device=0 LD_LIBRARY_PATH=
+hip: executable=<TARGET_REPO>/build-xvendor-hip/tests/xvendor/strata-xvendor-handoff device=0 LD_LIBRARY_PATH=/opt/rocm/lib
+child 0 log (462 bytes; last 64 KiB):
+vendor=HIP visible_count=1 device=0 name=AMD Radeon Graphics arch=gfx906:sramecc+:xnack-
+PASS: mode=futex rounds=100 zero stale values outbound=8x12804 f32 return=8x10240 f32 indices=8 i32 graph replay
+p50_us=254.330 p99_us=287.550 p99_lt_200=no
+extent: excludes main host fill/upload and return check/readback; includes both graph directions, CPU rendezvous and full worker processing/check
+SMOKE ONLY: fewer than 10000 rounds cannot clear the feasibility gate
+child 1 log (80 bytes; last 64 KiB):
+vendor=CUDA visible_count=1 device=0 name=NVIDIA GeForce RTX 3080 Ti arch=sm_86

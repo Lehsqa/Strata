@@ -1,0 +1,40 @@
+COMMAND: ['nm', '-D', '--defined-only', 'build-xvendor-cuda/tests/xvendor/libxprobe_cuda.so']
+EXIT: 0
+0000000000003240 T strata_xprobe_v1
+
+COMMAND: ['ldd', 'build-xvendor-cuda/tests/xvendor/libxprobe_cuda.so']
+EXIT: 0
+	linux-vdso.so.1 (0x00007938767f5000)
+	libcudart.so.12 => /lib/x86_64-linux-gnu/libcudart.so.12 (0x0000793876400000)
+	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x0000793876000000)
+	libgcc_s.so.1 => /lib/x86_64-linux-gnu/libgcc_s.so.1 (0x00007938767a1000)
+	libc.so.6 => /lib/x86_64-linux-gnu/libc.so.6 (0x0000793875c00000)
+	/lib64/ld-linux-x86-64.so.2 (0x00007938767f7000)
+	libdl.so.2 => /lib/x86_64-linux-gnu/libdl.so.2 (0x000079387679c000)
+	libpthread.so.0 => /lib/x86_64-linux-gnu/libpthread.so.0 (0x0000793876795000)
+	librt.so.1 => /lib/x86_64-linux-gnu/librt.so.1 (0x0000793876790000)
+	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007938766a7000)
+
+COMMAND: ['build-xvendor-cuda/tests/xvendor/strata-xvendor-handoff', '--region-bytes']
+EXIT: 0
+749568
+
+COMMAND: ['build-xvendor-cuda/tests/xvendor/strata-xvendor-handoff', '--region-bytes', '--mode', 'large-registration']
+EXIT: 0
+34359738368
+
+COMMAND: ['build-xvendor-cuda/tests/xvendor/strata-xvendor-handoff', '--region-bytes', '--rounds', '0']
+EXIT: 1
+FAIL: integer outside permitted range (registration failures may require a higher RLIMIT_MEMLOCK)
+
+COMMAND: ['build-xvendor-cuda/tests/xvendor/strata-xvendor-inproc', '--cuda', '/missing.so', '--hip', '/missing.so']
+EXIT: 1
+CUDA_VISIBLE_DEVICES=<unset>
+CUDA_DEVICE_ORDER=<unset>
+HIP_VISIBLE_DEVICES=<unset>
+ROCR_VISIBLE_DEVICES=<unset>
+FAIL: dlopen /missing.so: /missing.so: cannot open shared object file: No such file or directory
+
+COMMAND: ['build-xvendor-cuda/tests/xvendor/strata-xvendor-inproc', '--cuda', '/missing.so', '--hip', '/missing.so', '--order', 'bad']
+EXIT: 1
+FAIL: usage: --cuda LIB --hip LIB --order cuda-first|hip-first --teardown cuda-first|hip-first

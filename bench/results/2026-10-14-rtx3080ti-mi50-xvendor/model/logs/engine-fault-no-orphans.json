@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-10-14T14:27:44.169777+00:00",
+  "checks": [
+    {
+      "case": "kill-worker",
+      "parent_pid": 65583,
+      "worker_pid": 65648,
+      "parent_proc_absent": true,
+      "worker_proc_absent": true
+    },
+    {
+      "case": "kill-parent",
+      "parent_pid": 66059,
+      "worker_pid": 66122,
+      "parent_proc_absent": true,
+      "worker_proc_absent": true
+    }
+  ],
+  "status": "pass"
+}
+

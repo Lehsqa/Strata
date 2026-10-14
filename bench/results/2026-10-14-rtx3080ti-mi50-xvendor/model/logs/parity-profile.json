@@ -1,0 +1,18 @@
+{
+  "split": 12,
+  "resident_pairs": [
+    [
+      3,
+      120
+    ],
+    [
+      28,
+      288
+    ]
+  ],
+  "reference_cache_budget": 2,
+  "per_stage_cache_budget": 1,
+  "source_sha256": "8f59b4aa8873209dff11c11e37bcda9529a1335b724a1afeea37bf6388975baf",
+  "profile_sha256": "81cc3c97cdda15750619e822d088c3db9af84cade56fd0515668ec1a2280a25c",
+  "pairs": 24576
+}

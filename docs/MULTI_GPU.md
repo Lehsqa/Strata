@@ -344,8 +344,19 @@ These are opt-in settings on one rig, not defaults.
 With a layer split, `--batch N --batch-groups G --trim-stage-weights` decodes several conversations together and
 pipelines them through the cards: see [BATCHING.md](BATCHING.md).
 
-Mixed AMD/NVIDIA inference in one run remains unsupported. Linux-only
+Experimental Linux CLI mixed AMD/NVIDIA inference uses separate CUDA and HIP
+executables. Start the CUDA executable with
+`--stage-remote hip:EXE --stage-remote-devices 0 --layer-split K --serve`,
+native GGUF mmap experts, greedy decoding, and static expert caches. MTP,
+sampling, prompt/session caches, vision, batching, and Python server/setup
+integration are excluded. An RTX 3080 Ti + MI50 run on 2026-10-14 passed
+IQ3_S recall for a 149,900-token prompt with 150,000 Q4 context cells;
+see [configuration and measured results](../bench/results/2026-10-14-rtx3080ti-mi50-xvendor/model/README.md).
+
+The Linux-only
 [Phase 0 feasibility probes](../tests/xvendor/README.md) are available behind
 `STRATA_XVENDOR_TESTS=ON` for manual shared-memory, registration and runtime
-coexistence checks. GPU compilation and hardware gates remain pending; these
-probes add no engine split or setup/server behavior.
+coexistence checks. CUDA 12.0/gfx906 ROCm 6.3.3 correctness checks passed on an
+RTX 3080 Ti + Vega 20 host, but serialized latency failed the 200 us gate and full
+capacity remains unmeasured; see the [report](../bench/results/2026-10-14-rtx3080ti-mi50-xvendor/README.md).
+These probes add no engine split or setup/server behavior.

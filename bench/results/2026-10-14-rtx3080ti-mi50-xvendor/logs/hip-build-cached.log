@@ -1,0 +1,67 @@
+[ 10%] Built target strata_core
+[100%] Built target strata_kernels
+[100%] Building HIP object tests/xvendor/CMakeFiles/strata-xvendor-handoff.dir/xvendor_handoff.cu.o
+<TARGET_REPO>/tests/xvendor/xvendor_handoff.cu:34:23: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   34 |         catch (...) { cudaHostUnregister(host); throw; }
+      |                       ^~~~~~~~~~~~~~~~~~ ~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:127:28: note: expanded from macro 'cudaHostUnregister'
+  127 | #define cudaHostUnregister hipHostUnregister
+      |                            ^~~~~~~~~~~~~~~~~
+<TARGET_REPO>/tests/xvendor/xvendor_handoff.cu:37:62: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   37 |     ~Registered() { if (!std::uncaught_exceptions() && host) cudaHostUnregister(host); }
+      |                                                              ^~~~~~~~~~~~~~~~~~ ~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:127:28: note: expanded from macro 'cudaHostUnregister'
+  127 | #define cudaHostUnregister hipHostUnregister
+      |                            ^~~~~~~~~~~~~~~~~
+<TARGET_REPO>/tests/xvendor/xvendor_handoff.cu:55:67: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   55 |     ~DeviceMemory() { if (!std::uncaught_exceptions() && pointer) cudaFree(pointer); }
+      |                                                                   ^~~~~~~~ ~~~~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:104:18: note: expanded from macro 'cudaFree'
+  104 | #define cudaFree hipFree
+      |                  ^~~~~~~
+<TARGET_REPO>/tests/xvendor/xvendor_handoff.cu:70:19: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   70 |         if (exec) cudaGraphExecDestroy(exec);
+      |                   ^~~~~~~~~~~~~~~~~~~~ ~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:149:30: note: expanded from macro 'cudaGraphExecDestroy'
+  149 | #define cudaGraphExecDestroy hipGraphExecDestroy
+      |                              ^~~~~~~~~~~~~~~~~~~
+<TARGET_REPO>/tests/xvendor/xvendor_handoff.cu:71:20: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   71 |         if (graph) cudaGraphDestroy(graph);
+      |                    ^~~~~~~~~~~~~~~~ ~~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:148:26: note: expanded from macro 'cudaGraphDestroy'
+  148 | #define cudaGraphDestroy hipGraphDestroy
+      |                          ^~~~~~~~~~~~~~~
+5 warnings generated when compiling for gfx906.
+<TARGET_REPO>/tests/xvendor/xvendor_handoff.cu:34:23: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   34 |         catch (...) { cudaHostUnregister(host); throw; }
+      |                       ^~~~~~~~~~~~~~~~~~ ~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:127:28: note: expanded from macro 'cudaHostUnregister'
+  127 | #define cudaHostUnregister hipHostUnregister
+      |                            ^~~~~~~~~~~~~~~~~
+<TARGET_REPO>/tests/xvendor/xvendor_handoff.cu:37:62: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   37 |     ~Registered() { if (!std::uncaught_exceptions() && host) cudaHostUnregister(host); }
+      |                                                              ^~~~~~~~~~~~~~~~~~ ~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:127:28: note: expanded from macro 'cudaHostUnregister'
+  127 | #define cudaHostUnregister hipHostUnregister
+      |                            ^~~~~~~~~~~~~~~~~
+<TARGET_REPO>/tests/xvendor/xvendor_handoff.cu:55:67: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   55 |     ~DeviceMemory() { if (!std::uncaught_exceptions() && pointer) cudaFree(pointer); }
+      |                                                                   ^~~~~~~~ ~~~~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:104:18: note: expanded from macro 'cudaFree'
+  104 | #define cudaFree hipFree
+      |                  ^~~~~~~
+<TARGET_REPO>/tests/xvendor/xvendor_handoff.cu:70:19: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   70 |         if (exec) cudaGraphExecDestroy(exec);
+      |                   ^~~~~~~~~~~~~~~~~~~~ ~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:149:30: note: expanded from macro 'cudaGraphExecDestroy'
+  149 | #define cudaGraphExecDestroy hipGraphExecDestroy
+      |                              ^~~~~~~~~~~~~~~~~~~
+<TARGET_REPO>/tests/xvendor/xvendor_handoff.cu:71:20: warning: ignoring return value of function declared with 'nodiscard' attribute [-Wunused-result]
+   71 |         if (graph) cudaGraphDestroy(graph);
+      |                    ^~~~~~~~~~~~~~~~ ~~~~~
+<TARGET_REPO>/include/strata/platform/hip_compat/strata_hip.h:148:26: note: expanded from macro 'cudaGraphDestroy'
+  148 | #define cudaGraphDestroy hipGraphDestroy
+      |                          ^~~~~~~~~~~~~~~
+5 warnings generated when compiling for host.
+[100%] Linking HIP executable strata-xvendor-handoff
+[100%] Built target strata-xvendor-handoff

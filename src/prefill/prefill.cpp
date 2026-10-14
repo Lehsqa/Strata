@@ -1068,13 +1068,14 @@ bool Prefill::init(const core::WeightTable& wt, const core::ModelGeometry& g, co
     }
     cudaGetDevice(&m.device);
     if (stage_le_ < 0) stage_le_ = g.n_layers;
-    if (stage_lb_ < 0 || stage_lb_ >= stage_le_ || stage_le_ > g.n_layers || (stage_le_ < g.n_layers) != (next_ != nullptr)) {
+    if (stage_lb_ < 0 || stage_lb_ >= stage_le_ || stage_le_ > g.n_layers ||
+        (stage_le_ < g.n_layers) != (next_ != nullptr || link_ != nullptr)) {
         err = "prefill: the stage's layer range is wrong";
         return false;
     }
     // the CPU share's staged-chunk limit, before the ring is sized below (a caller that sizes loans first armed it)
     arm_cpu_share(cpu_pool_ != nullptr);
-    for (int b = 0; next_ != nullptr && b < 2; ++b)
+    for (int b = 0; link_ == nullptr && next_ != nullptr && b < 2; ++b)
         if (!m.hand[b] && cudaHostAlloc((void**) &m.hand[b], (size_t) chunk * D * 4, cudaHostAllocPortable) != cudaSuccess) {
             err = "prefill: the layer split's hand-off buffers";
             return false;
@@ -4047,9 +4048,10 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
         stats_.tokens += T;
         core::progress_at("reading the prompt (batched): finishing the chunk from token", p0);
         pt.mark(kPfStart, cs);
-        if (next_ != nullptr) {
+        if (next_ != nullptr || link_ != nullptr) {
             // The current hand-off slot was used two chunks ago.
-            float* h = m.hand[hand_buf_];
+            float* h = link_ ? link_->chunk_slot(hand_buf_) : m.hand[hand_buf_];
+            if (h == nullptr) { err = "prefill: missing remote hand-off slot"; return false; }
             if (cudaMemcpyAsync(h, m.R, (size_t) T * D * 4, cudaMemcpyDeviceToHost, m.cs) != cudaSuccess ||
                 cudaStreamSynchronize(m.cs) != cudaSuccess) {
                 err = std::string("prefill: the layer split's hand-off: ") + cudaGetErrorString(cudaGetLastError());
@@ -4060,12 +4062,19 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
             if (on_stage_chunk && !on_stage_chunk(p0 + T, err)) return false;
             if (next_run_.valid() && !next_run_.get()) { err = next_err_; return false; }
             next_err_.clear();
-            next_->hand_in_ = h;
-            next_->single_chunk_ = single_chunk;
-            next_run_ = std::async(std::launch::async, [this, tokens, c0, T, p0] {
-                strata::aux_cpus::pin_current_thread();
-                return next_->run_impl(tokens + c0, T, p0, next_err_);
-            });
+            if (link_) {
+                next_run_ = std::async(std::launch::async, [this, tokens, c0, T, p0, h, single_chunk] {
+                    strata::aux_cpus::pin_current_thread();
+                    return link_->run_chunk(tokens + c0, T, p0, h, single_chunk, next_err_);
+                });
+            } else {
+                next_->hand_in_ = h;
+                next_->single_chunk_ = single_chunk;
+                next_run_ = std::async(std::launch::async, [this, tokens, c0, T, p0] {
+                    strata::aux_cpus::pin_current_thread();
+                    return next_->run_impl(tokens + c0, T, p0, next_err_);
+                });
+            }
             hand_buf_ ^= 1;
             continue;   // the last stage reports the chunk (on_chunk)
         }
@@ -4206,6 +4215,22 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
     return true;
 }
 
+bool Prefill::run_stage_chunk(const int64_t* tokens, int64_t n, int64_t pos0, const float* host_rows,
+                              bool single_chunk, std::string& err) {
+    if (impl_->g == nullptr || stage_lb_ <= 0 || tokens == nullptr || host_rows == nullptr || n <= 0 || pos0 < 0) {
+        err = "prefill: invalid later-stage prompt chunk";
+        return false;
+    }
+    const float* previous_rows = hand_in_;
+    const bool previous_single = single_chunk_;
+    hand_in_ = host_rows;
+    single_chunk_ = single_chunk;
+    const bool ok = run_impl(tokens, n, pos0, err);
+    hand_in_ = previous_rows;
+    single_chunk_ = previous_single;
+    return ok;
+}
+
 bool Prefill::drain_pipeline(std::string& err) {
     bool ok = true;
 
@@ -4216,7 +4241,13 @@ bool Prefill::drain_pipeline(std::string& err) {
         }
     }
 
-    if (next_ != nullptr) {
+    if (link_ != nullptr) {
+        std::string tail_err;
+        if (!link_->drain(tail_err)) {
+            if (ok) err = tail_err;
+            ok = false;
+        }
+    } else if (next_ != nullptr) {
         std::string tail_err;
         if (!next_->drain_pipeline(tail_err)) {
             if (ok) err = tail_err;

@@ -1,0 +1,141 @@
+strata generate: PCIe probe: 6.6 GB/s host->device (best of 6.6 6.6 6.6 6.6) -> pcie_frac 0.18 (default 0.55)
+strata generate: native pack: <TARGET_HOME>/Models/strata-packs/iq3_s experts (largest blob 2.66 MB), token embedding IQ4_XS in mapped host memory (322 MiB, 0.2 s)
+strata generate: 1466 MiB of weights loaded from <TARGET_HOME>/Models/strata-packs/iq3_s in 0.7 s (302 canonical tensors skipped: served natively)
+strata generate: 300 native projection matrices, 2018.88 MiB of weights, in 1.7 s
+strata generate: PLE direct read probe: 65387 rows/s (fine)
+strata generate: the SSD is kept awake while rows are read: one page of the table after 100 ms without a read, until 60 s after the last request (STRATA_SSD_KEEPALIVE=0 turns it off)
+strata generate: profile data/expert-profile.bin: 24576 ranked pairs, built for 24576 slots
+strata generate: PLE on, table 320001536 rows of <TARGET_HOME>/Models/gguf/Qwen3.8-Flash-Next/IQ3_S/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_S-00002-of-00002.gguf
+strata generate: experimental native Q5_K head, 521472000 bytes, in 0.4 s
+strata generate: GPU 0: AMD Radeon Graphics, compute capability 9.0
+strata generate: experts via mmap (--mmap-experts; the GGUF shards in place, no experts.bin)
+strata generate: GPU host-callback thread started before host-core pinning
+strata generate: CPU pool tasks/phase: 18 (automatic), participating threads: 6
+strata generate: 5 pool workers on logical processors 1,2,3,4,5, the host thread on 0 (draining too) (--host-core first)
+strata aux cpus: threads that are neither pool workers nor the host go to CPUs 6 (off at start; a request's aux_cpus=1 turns it on)
+strata generate: expert cache auto: 26.38 GiB free, 700 MiB reserved (+0 MiB for the draft head) -> 10362 slots
+strata generate: expert cache 13537 slots, 25.69 GiB of VRAM; policy is
+strata generate: the GPU computes the experts in the cache; it rounds differently from the CPU,
+                 so a reply can differ slightly from a run without the cache (same quality:
+                 bench/results/2026-09-27-cache-parity).
+                 PROFILE, ranked by routing frequency, no eviction.
+strata generate: the profile fill asks for 256 pairs ahead (STRATA_FILL_AHEAD)
+strata generate: pre-filled 13537 of 13537 slots from the profile in 10.7 s (2579 MB/s); slot 0 verified
+strata generate: routing-aware prefetch on (the next layer's router, file tier)
+strata generate: R4 hit path ON - resident experts are computed on the GPU
+strata generate: 5 expert-pool workers + the host thread
+strata generate: session is up (engine 0.1.43.1)
+strata generate: sampling greedy
+strata generate: token graph hit path: 13537 resident experts, decided on the device
+strata generate: prompt path borrows 166 cache slots (0.31 GiB)
+strata generate: 166 lent slots refilled in 55.8 ms
+strata generate: prefill 25 tokens in 1 chunks, 3685.8 ms (6.8 tok/s); experts streamed 1116 (0 by DMA, host 2612.3 ms), resident 3154, on the CPU 0 (share 0.00); PLE 0.8 ms
+strata hc: CUDA0: the hyper-connection read runs as staged (the norm per token and stream, the down projection's activations staged ahead by cp.async); checked bit for bit against the plain read on this card (STRATA_HC_SPLIT=1 or 0 for the earlier ones)
+strata verify trace (#649): on
+strata verify: window up to 8 tokens, 86.7 MiB of device buffers
+strata verify: capturing the 1-token window (534 MiB of VRAM free)
+strata verify: captured the 1-token window (upload no error, sync no error)
+verify dbg: captured; staging
+verify dbg: staged; launching
+verify dbg: launched
+verify dbg: layer 0 rang
+verify dbg: layer 0 served
+verify dbg: layer 1 rang
+verify dbg: layer 1 served
+verify dbg: layer 2 rang
+verify dbg: layer 2 served
+verify dbg: layer 3 rang
+verify dbg: layer 3 served
+verify dbg: layer 4 rang
+verify dbg: layer 4 served
+verify dbg: layer 5 rang
+verify dbg: layer 5 served
+verify dbg: layer 6 rang
+verify dbg: layer 6 served
+verify dbg: layer 7 rang
+verify dbg: layer 7 served
+verify dbg: layer 8 rang
+verify dbg: layer 8 served
+verify dbg: layer 9 rang
+verify dbg: layer 9 served
+verify dbg: layer 10 rang
+verify dbg: layer 10 served
+verify dbg: layer 11 rang
+verify dbg: layer 11 served
+verify dbg: layer 12 rang
+verify dbg: layer 12 served
+verify dbg: layer 13 rang
+verify dbg: layer 13 served
+verify dbg: layer 14 rang
+verify dbg: layer 14 served
+verify dbg: layer 15 rang
+verify dbg: layer 15 served
+verify dbg: layer 16 rang
+verify dbg: layer 16 served
+verify dbg: layer 17 rang
+verify dbg: layer 17 served
+verify dbg: layer 18 rang
+verify dbg: layer 18 served
+verify dbg: layer 19 rang
+verify dbg: layer 19 served
+verify dbg: layer 20 rang
+verify dbg: layer 20 served
+verify dbg: layer 21 rang
+verify dbg: layer 21 served
+verify dbg: layer 22 rang
+verify dbg: layer 22 served
+verify dbg: layer 23 rang
+verify dbg: layer 23 served
+verify dbg: layer 24 rang
+verify dbg: layer 24 served
+verify dbg: layer 25 rang
+verify dbg: layer 25 served
+verify dbg: layer 26 rang
+verify dbg: layer 26 served
+verify dbg: layer 27 rang
+verify dbg: layer 27 served
+verify dbg: layer 28 rang
+verify dbg: layer 28 served
+verify dbg: layer 29 rang
+verify dbg: layer 29 served
+verify dbg: layer 30 rang
+verify dbg: layer 30 served
+verify dbg: layer 31 rang
+verify dbg: layer 31 served
+verify dbg: layer 32 rang
+verify dbg: layer 32 served
+verify dbg: layer 33 rang
+verify dbg: layer 33 served
+verify dbg: layer 34 rang
+verify dbg: layer 34 served
+verify dbg: layer 35 rang
+verify dbg: layer 35 served
+verify dbg: layer 36 rang
+verify dbg: layer 36 served
+verify dbg: layer 37 rang
+verify dbg: layer 37 served
+verify dbg: layer 38 rang
+verify dbg: layer 38 served
+verify dbg: layer 39 rang
+verify dbg: layer 39 served
+verify dbg: layer 40 rang
+verify dbg: layer 40 served
+verify dbg: layer 41 rang
+verify dbg: layer 41 served
+verify dbg: layer 42 rang
+verify dbg: layer 42 served
+verify dbg: layer 43 rang
+verify dbg: layer 43 served
+verify dbg: layer 44 rang
+verify dbg: layer 44 served
+verify dbg: layer 45 rang
+verify dbg: layer 45 served
+verify dbg: layer 46 rang
+verify dbg: layer 46 served
+verify dbg: layer 47 rang
+verify dbg: layer 47 served
+verify dbg: window done
+strata verify: capturing the 8-token window (490 MiB of VRAM free)
+strata verify: captured the 8-token window (upload no error, sync no error)
+verify dbg: captured; staging
+verify dbg: staged; launching
